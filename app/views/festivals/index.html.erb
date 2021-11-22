@@ -1,1 +1,26 @@
-hello
+<form action="/festivals/search" method="get">
+  <input type="text" name="query" placeholder="Which event are you looking for?">
+  <input type="submit">
+</form>
+<%= link_to "add a festival", festival_path("new")  %>
+
+
+  <% @festivals.each do |festival| %>
+    <li>
+      <%= festival.name %>
+      <br>
+      <%= festival.description %>
+      <br>
+      <%= festival.date %>
+      <br>
+      <%= link_to "more info", festival_path(festival[:id]) %>
+      <%= link_to "Edit", edit_festival_path(festival[:id]) %>
+      <%= link_to "Remove",
+            festival_path(festival),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </li>
+
+  <% end %>
+
+</ul>

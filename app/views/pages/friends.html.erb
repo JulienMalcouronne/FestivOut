@@ -2,6 +2,10 @@
 
 
 <h2>Add a friend :</h2>
+ <form action="/friends" method="post">
+  <input type="text" name="username" placeholder="Type your friend username?">
+  <input type="submit">
+</form>
 <br>
 <h2>find all your friends below :</h2>
 <% if @user.friends != nil %>
