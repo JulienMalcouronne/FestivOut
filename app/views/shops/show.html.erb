@@ -1,15 +1,21 @@
 
-<h2>Welcome to <%= @shop.name%> menu</h2>
-<% totalPrice = 0 %>
+<h2 class="text-center"><%=@shop.name%></h2>
+
 <% @shop.items.each do |item| %>
- <li> <%= item.name %>
-  <%= item.description %>
-  <%= item.price %>€ <button>-</button><%= totalPrice %><button>+</button>
-  <%= form_tag orders_path do %>
-  <%= hidden_field_tag 'item_id', item.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
-</li>
+  <li style="list-style: none;">
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= item.name %> - <%= item.price %> €</h2>
+        <p><%= item.description %></p>
+        <button>add to cart</button>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'item_id', item.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <% end %>
+      </div>
+    </div>
+  </li>
 <% end  %>
 
 
