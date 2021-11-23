@@ -1,13 +1,13 @@
-<h1>hello <%= @user.first_name %></h1>
-
-
+<h1>Hello <%= @user.first_name %></h1>
 <%= link_to "Add a friend", "/friends/new" %>
-
 <br>
-<h2>find all your friends below :</h2>
-<% if current_user.friends != nil %>
-<% friends = current_user.friends %>
-<% friends.each do |friend| %>
-<li> <%= friend.user["username"] %></li>
-<% end  %>
-<% end  %>
+<h2>Find all your (<%= @friends.length %>) friends below :</h2>
+
+  <div class="friends">
+    <% if current_user.friends != nil %>
+    <% friends = current_user.friends %>
+    <% friends.each do |friend| %>
+    <li><img src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %></li>
+    <% end  %>
+    <% end  %>
+  </div>

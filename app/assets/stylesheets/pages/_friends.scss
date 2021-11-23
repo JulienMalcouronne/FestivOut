@@ -1,0 +1,15 @@
+.friends{
+
+  display:grid;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  li{
+    list-style-type: none;
+    height: 100px;
+  }
+  img{
+    height: 50px;
+    border-radius: 50%;
+  }
+}
