@@ -1,9 +1,15 @@
 
-<h2>Welcome to <%= @shop.name%> menu</h2>
+<h2 class="text-center"><%=@shop.name%></h2>
 
 <% @shop.items.each do |item| %>
- <li> <%= item.name %>
-  <%= item.description %>
-  <%= item.price %>€ <button>add to cart</button>
-</li>
+  <li style="list-style: none;">
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= item.name %> - <%= item.price %> €</h2>
+        <p><%= item.description %></p>
+        <button>add to cart</button>
+      </div>
+    </div>
+  </li>
 <% end  %>
