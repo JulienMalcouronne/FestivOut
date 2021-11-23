@@ -1,9 +1,17 @@
 
 <h2>Welcome to <%= @shop.name%> menu</h2>
-
+<% totalPrice = 0 %>
 <% @shop.items.each do |item| %>
  <li> <%= item.name %>
   <%= item.description %>
-  <%= item.price %>€ <button>add to cart</button>
+  <%= item.price %>€ <button>-</button><%= totalPrice %><button>+</button>
 </li>
 <% end  %>
+
+<br>
+<h2>Your cart</h2>
+<h3>-------------------------------------<h3>
+
+
+<h2><strong>total price: </strong></h2>
+<a href="" class="btn btn-primary">proceed to checkouts</a>
