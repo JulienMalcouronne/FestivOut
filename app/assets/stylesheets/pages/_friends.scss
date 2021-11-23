@@ -1,15 +1,38 @@
+.add{
+  display: flex;
+  justify-content: center;
+  a{
+     color: #002A32;
+     font-size: 30px;
+  }
+  h2{
+    font-size: 20px;
+  }
+}
 .friends{
 
   display:grid;
-  align-items: center;
-  justify-content: center;
   margin-right: 10px;
   li{
     list-style-type: none;
-    height: 100px;
+    height: 70px;
+    border-bottom: 2px solid #8661C1;
+    margin-top: 27px;
+    font-weight: bold;
   }
   img{
     height: 50px;
     border-radius: 50%;
+  }
+
+  .fa-user-times{
+    margin-left: 130px;
+    margin-right: 20px;
+    color: #8661C1;
+    font-size: 20px;
+  }
+  .fa-location-arrow{
+    color: #8661C1;
+    font-size: 20px;
   }
 }
