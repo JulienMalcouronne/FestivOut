@@ -1,13 +1,12 @@
 class FriendsController < ApplicationController
   def new
     @friend = Friend.new
-    @friend = User.find(params[:username])
   end
 
   def create
-    @friend = Friend.new(friend_params)
-    @friend = User.find(params[:username])
-    @friend.friend = current_user.friend
+    # @friend = Friend.new(friend_params)
+    @friend = Friend.new
+    @friend.friend = User.where(username: params[:friend][:username]).first
     @friend.user = current_user
 
     if @friend.save!
@@ -20,8 +19,8 @@ class FriendsController < ApplicationController
 
   private
 
-  def reservation_params
-    params.require(:friend).permit(:user_id)
+  def friend_params
+    params.require(:friend).permit(:username)
   end
 
 end
