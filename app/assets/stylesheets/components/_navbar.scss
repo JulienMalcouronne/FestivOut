@@ -47,3 +47,7 @@
   opacity: 0.9;
   margin-left: 13px;
 }
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
+  background-color: #EEEEEE;
+}
