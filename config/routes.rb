@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   get "/friends", to: "pages#friends"
   resources :friends, only: [:new, :create, :index]
   resources :festivals do
-    member do
+    # member do
       resources :shops, only: [:new, :create, :show, :index] do
-        member do
-          resources :items, only: [:new, :create, :show, :index]
+        # member do
+          resources :items, only: [:new, :create]
         end
       end
     end
-  end
-end
+  # end
+# end
