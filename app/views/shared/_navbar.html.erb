@@ -32,6 +32,7 @@
             <%= link_to "Friends", "/friends", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
+
           <% if current_user.avatar.attached? %>
          <%# <div class="avatar"> %>
             <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
