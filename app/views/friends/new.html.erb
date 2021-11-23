@@ -1,9 +1,9 @@
 <div>
   <div>
     <h1>your friend username: </h1>
-      <div class="reservationz">
-        <%=simple_form_for [@user, @friend] do |f| %>
-          <%= f.input :username %>
+      <div>
+        <%=simple_form_for @friend do |f| %>
+          <%= f.text_field :username, value: "" %>
           <%= f.submit %>
         <% end %>
       </div>
