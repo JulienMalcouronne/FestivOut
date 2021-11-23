@@ -11,15 +11,16 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    @festival = Festival.find(params[:festival_id])
+    @festival = Festival.find(params[:id])
   end
 
   def create
     @shop = Shop.new(shop_params)
-    @festival = Festival.find(params[:festival_id])
+    @festival = Festival.find(params[:id])
     @shop.festival = @festival
     if @shop.save!
-      redirect_to festival_shop_path(@festival, @shop)
+      # redirect_to festival_shop_path(@festival, @shop)
+      redirect_to festivals_path
       flash[:alert] = 'Shop was successfully created.'
     else
       render :new
