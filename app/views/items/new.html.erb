@@ -1,0 +1,9 @@
+        <%=simple_form_for [@item] do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, as: :name %>
+          <%= f.label :description %>
+          <%= f.text_field :description, as: :description %>
+          <%= f.label :price %>
+          <%= f.number_field :price, as: :price %>
+          <%= f.submit %>
+        <% end %>
