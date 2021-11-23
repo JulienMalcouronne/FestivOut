@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   get "/map",to: "pages#map"
   resources :friends, only: [:new, :create, :index]
   resources :festivals do
-    # member do
-      resources :shops, only: [:new, :create, :show, :index] do
-        # member do
-          resources :items, only: [:new, :create]
-        end
-      end
+    resources :shops, only: [:new, :create, :show, :index] do
+      resources :items, only: [:new, :create]
     end
-  # end
-# end
+  end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+end
