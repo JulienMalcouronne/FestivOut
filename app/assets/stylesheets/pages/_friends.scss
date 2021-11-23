@@ -1,0 +1,43 @@
+.add{
+  display: flex;
+  justify-content: center;
+  a{
+    color: #EEEEEE;
+    font-size: 20px;
+    border: 2px solid #002A32;
+    border-radius: 13px;
+    padding: 3px;
+    width: 135px;
+    background-color: #002A32;
+  }
+  h2{
+    font-size: 20px;
+  }
+}
+.friends{
+
+  display:grid;
+  margin-right: 10px;
+  li{
+    list-style-type: none;
+    height: 70px;
+    border-bottom: 2px solid #8661C1;
+    margin-top: 27px;
+    font-weight: bold;
+  }
+  img{
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .fa-user-times{
+    margin-left: 130px;
+    margin-right: 20px;
+    color: #8661C1;
+    font-size: 20px;
+  }
+  .fa-location-arrow{
+    color: #8661C1;
+    font-size: 20px;
+  }
+}

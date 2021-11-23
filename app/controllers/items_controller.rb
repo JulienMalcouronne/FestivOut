@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[show]
-  def index
-    @items = Item.all
-  end
+  # def index
+  #   @shop = Shop.find(params[:shop_id])
+  #   @items = Item.where(shop_id: @shop.id)
+  # end
 
   def show
     @item = @item.shop
@@ -10,17 +11,19 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @festival = Festival.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
+    @festival = Festival.find(params[:festival_id])
   end
 
   def create
-    @shop = Shop.new(shop_params)
-    @festival = Festival.find(params[:id])
-    @shop.festival = @festival
-    if @shop.save!
+    @item = Item.new(item_params)
+    @shop = Shop.find(params[:shop_id])
+    @festival = Festival.find(params[:festival_id])
+    @item.shop = @shop
+    if @item.save!
       # redirect_to festival_shop_path(@festival, @shop)
-      redirect_to festivals_path
-      flash[:alert] = 'Shop was successfully created.'
+      redirect_to festival_shop_path(@festival.id, @shop.id)
+      flash[:alert] = 'Item was successfully created.'
     else
       render :new
     end
@@ -28,11 +31,11 @@ class ItemsController < ApplicationController
 
     private
 
-  def set_shop
-    @shop = Shop.find(params[:id])
+  def set_item
+    @item = Item.find(params[:id])
   end
 
-  def shop_params
-    params.require(:shop).permit(:name, :festival_id)
+  def item_params
+    params.require(:item).permit(:name, :description, :price)
   end
 end

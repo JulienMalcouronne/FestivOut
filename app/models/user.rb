@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :friends
   has_many :messages
+  has_many :orders
 end

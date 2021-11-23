@@ -1,5 +1,8 @@
 <h2>Welcome to our shop</h2>
 
 <% @shops.each do |shop| %>
-<%= shop.name %>
+<li><%= shop.name %>
+  <%= link_to "See the menu", festival_shop_path(@festival.id, shop.id)%>
+</li>
+
 <% end %>
