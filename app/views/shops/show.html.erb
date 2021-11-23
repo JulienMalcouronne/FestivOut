@@ -5,8 +5,14 @@
  <li> <%= item.name %>
   <%= item.description %>
   <%= item.price %>€ <button>-</button><%= totalPrice %><button>+</button>
+  <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'item_id', item.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
 </li>
 <% end  %>
+
+
 
 <br>
 <h2>Your cart</h2>
