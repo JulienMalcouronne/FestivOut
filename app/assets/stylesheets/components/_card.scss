@@ -1,27 +1,26 @@
 .col-6{
+    margin-top: 50px;
     width: 50%;
     height: 120px;
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     color: #EEEEEE;
     font-weight: bold;
-    .p{
-      height: 10px;
-      width: 10px;
+    flex-direction: column;
+    .btn{
+    border-radius: 34px;
+    height: 34px;
+    width: 37px;
+    background-color: #EEEEEE;
+      &:hover{
+        background-color:#002A32;
+      }
     }
 }
 
-.image {
-  background-size: cover;
-  height: 122px;
-  width: 250px;
-  background-image:asset-url('eggs.png')
-}
-
-.svg1{
-  background-image:asset-url('map.svg');
-  height: 87px;
-  width: 100px;
-  border: none;
+p{
+  height: 10px;
+  width: -27px;
+  color: #002A32;
 }
