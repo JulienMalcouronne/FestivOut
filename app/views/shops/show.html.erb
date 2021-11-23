@@ -9,7 +9,21 @@
         <h2><%= item.name %> - <%= item.price %> €</h2>
         <p><%= item.description %></p>
         <button>add to cart</button>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'item_id', item.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <% end %>
       </div>
     </div>
   </li>
 <% end  %>
+
+
+
+<br>
+<h2>Your cart</h2>
+<h3>-------------------------------------<h3>
+
+
+<h2><strong>total price: </strong></h2>
+<a href="" class="btn btn-primary">proceed to checkouts</a>
