@@ -1,4 +1,4 @@
-        <%=simple_form_for [@item] do |f| %>
+        <%=simple_form_for [@festival, @shop, @item] do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name, as: :name %>
           <%= f.label :description %>

@@ -1,8 +1,9 @@
-<%# we don't need that for now I guess %>
 
-<%#
-<h2>Welcome to <%= @shop.name%>
+<h2>Welcome to <%= @shop.name%> menu</h2>
 
-<%# <% @shop.items do |item| %>
-<%# <%= item.name %>
-<%# <% end %>
+<% @shop.items.each do |item| %>
+ <li> <%= item.name %>
+  <%= item.description %>
+  <%= item.price %>€ <button>add to cart</button>
+</li>
+<% end  %>
