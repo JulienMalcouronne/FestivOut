@@ -4,12 +4,27 @@ class ShopsController < ApplicationController
   def index
     @shops = policy_scope(Shop)
     @festival = Festival.find(params[:festival_id])
-
+      @markers = @shops.geocoded.map do |shop|
+    {
+      lat: shop.latitude,
+      lng: shop.longitude
+      info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+      image_url: helpers.asset_url("outlogo.png")
+      }]
+    authorize @shop
+    end
   end
 
   def show
     @festival = Festival.find(params[:festival_id])
     @shop = Shop.includes(:items).find(params[:id])
+    @markers = [
+      {
+        lat: @shop.latitude,
+        lng: @shop.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+        image_url: helpers.asset_url("outlogo.png")
+      }]
     authorize @shop
   end
 
@@ -38,6 +53,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :festival_id)
+    params.require(:shop).permit(:name,:address, :festival_id)
   end
 end

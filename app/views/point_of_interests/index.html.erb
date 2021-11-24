@@ -1,1 +1,19 @@
-hello
+
+<h1 class="text-center">All the Points of interest</h1>
+
+<% @point_of_interests.each do |point| %>
+  <li class="mb-3" style="list-style: none;">
+    <div class="card-trip">
+      <img src="https://static.actu.fr/uploads/2021/03/food-truck1.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= point.name %></h2>
+          <h2><%= point.description %></h2>
+          <div class="card-trip-pricing">
+            <%= link_to "More info",  festival_point_of_interest_path(@festival.id, point.id)%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>
