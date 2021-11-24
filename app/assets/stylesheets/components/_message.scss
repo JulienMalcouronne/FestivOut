@@ -1,0 +1,47 @@
+.messages {
+  width: 100%;
+}
+
+.message {
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  word-break: break-word;
+}
+
+.ownmessage {
+  background-color: #edab18;
+  color: #EEEEEE;
+  p {
+    color: #EEEEEE;
+    max-width: 100%;
+  }
+  img {
+    margin: 5px;
+  }
+  small {
+    margin: 0px;
+  }
+}
+
+.othermessage {
+  background-color: #EEEEEE;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  border: 1px #002A32 solid;
+  p {
+    color: #002A32;
+    max-width: 100%;
+  }
+  img {
+    margin: 5px;
+  }
+  small {
+    margin: 0px;
+  }
+}
+
+.chatcontent {
+  margin-top: 5px;
+  margin-left: 5px;
+}

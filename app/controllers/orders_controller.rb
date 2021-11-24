@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   def create
   item = Item.find(params[:item_id])
   order  = Order.create!(item: item, item_sku: item.name, amount: item.price, state: 'pending', user: current_user)
-
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
@@ -18,9 +17,11 @@ class OrdersController < ApplicationController
 
   order.update(checkout_session_id: session.id)
   redirect_to new_order_payment_path(order)
+  authorize order
   end
 
   def show
     @order = current_user.orders.find(params[:id])
+    authorize @order
   end
 end

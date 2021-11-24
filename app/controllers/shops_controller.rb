@@ -2,18 +2,8 @@ class ShopsController < ApplicationController
 
   before_action :set_shop, only: %i[show]
   def index
-    @shops = Shop.all
+    @shops = policy_scope(Shop)
     @festival = Festival.find(params[:festival_id])
-    @shops = @shops.search_by_name_and_address(params[:query])
-
-        @markers = @shops.geocoded.map do |shop|
-      {
-        lat: shop.latitude,
-        lng: shop.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { shop: shop }),
-        image_url: helpers.asset_url("rocket.png")
-      }
-    end
   end
 
   def show
@@ -23,10 +13,10 @@ class ShopsController < ApplicationController
       {
         lat: @shop.latitude,
         lng: @shop.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+        info_window: render_to_string(partial: "info_window", locals: { shop: shop }),
         image_url: helpers.asset_url("outlogo.png")
       }]
-
+    authorize @shop
   end
 
   def new
