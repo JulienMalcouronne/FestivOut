@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
       @chatroom,
       render_to_string(partial: "message", locals: {message: @message, current_user: nil})
     )
-      redirect_to festival_chatroom_path(@festival, @chatroom, anchor: "message-#{@message.id}")
+      # redirect_to festival_chatroom_path(@festival, @chatroom, anchor: "message-#{@message.id}")
 
     else
       render "chatrooms/show"
