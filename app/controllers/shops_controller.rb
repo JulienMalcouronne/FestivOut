@@ -4,27 +4,27 @@ class ShopsController < ApplicationController
   def index
     @shops = policy_scope(Shop)
     @festival = Festival.find(params[:festival_id])
-      @markers = @shops.geocoded.map do |shop|
-    {
-      lat: shop.latitude,
-      lng: shop.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
-      image_url: helpers.asset_url("outlogo.png")
-      }
-    authorize @shop
-    end
+    #   @markers = @shops.geocoded.map do |shop|
+    # {
+    #   lat: shop.latitude,
+    #   lng: shop.longitude,
+    #   info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+    #   image_url: helpers.asset_url("outlogo.png")
+    #   }
+    # authorize @shop
+    # end
   end
 
   def show
     @festival = Festival.find(params[:festival_id])
     @shop = Shop.includes(:items).find(params[:id])
-    @markers = [
-      {
-        lat: @shop.latitude,
-        lng: @shop.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
-        image_url: helpers.asset_url("outlogo.png")
-      }]
+    # @markers = [
+    #   {
+    #     lat: @shop.latitude,
+    #     lng: @shop.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+    #     image_url: helpers.asset_url("outlogo.png")
+    #   }]
     authorize @shop
   end
 
@@ -38,7 +38,6 @@ class ShopsController < ApplicationController
     @festival = Festival.find(params[:festival_id])
     @shop.festival = @festival
     if @shop.save!
-      # redirect_to festival_shop_path(@festival, @shop)
       redirect_to festivals_path
       flash[:alert] = 'Shop was successfully created.'
     else
