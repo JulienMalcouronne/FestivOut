@@ -8,7 +8,6 @@
       <div class="card-product-infos">
         <h2><%= item.name %> - <%= item.price %> €</h2>
         <p><%= item.description %></p>
-        <button>add to cart</button>
           <%= form_tag orders_path do %>
           <%= hidden_field_tag 'item_id', item.id %>
           <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
