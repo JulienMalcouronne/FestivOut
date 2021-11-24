@@ -3,5 +3,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @festival = Festival.find(params[:festival_id])
+    authorize @chatroom
   end
 end

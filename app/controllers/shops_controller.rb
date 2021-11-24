@@ -2,14 +2,15 @@ class ShopsController < ApplicationController
 
   before_action :set_shop, only: %i[show]
   def index
-    @shops = Shop.all
+    @shops = policy_scope(Shop)
     @festival = Festival.find(params[:festival_id])
+
   end
 
   def show
     @festival = Festival.find(params[:festival_id])
     @shop = Shop.includes(:items).find(params[:id])
-
+    authorize @shop
   end
 
   def new
