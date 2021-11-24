@@ -19,7 +19,7 @@ desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because 
   shop = Shop.create!(
     name: name.sample,
     address: address.sample,
-    festival: 1
+    festival_id: Festival.all.first.id
   )
   shops << shop
   shops.each do |shop|
@@ -28,8 +28,7 @@ desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because 
         name: itemName.sample,
         description: desc.sample,
         price: rand(5..20),
-        shop: shop,
-        festival: 1
+        shop_id: shop.id
       )
       shop.save!
       item.save!
