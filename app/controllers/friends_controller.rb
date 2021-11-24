@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
   def new
     @friend = Friend.new
+    authorize @friend
   end
 
   def create
@@ -8,7 +9,7 @@ class FriendsController < ApplicationController
     @friend = Friend.new
     @friend.friend = User.where(username: params[:friend][:username]).first
     @friend.user = current_user
-
+    authorize @friend
     if @friend.save!
       redirect_to "/friends"
       flash[:alert] = 'friend successfully added'
@@ -20,7 +21,10 @@ class FriendsController < ApplicationController
   def index
     @user = current_user
     @friends = @user.friends
+    # @friends = policy_score(@user.friends)
+    @friends = policy_score(Friend)
     @friend = Friend.new
+    # authorize @friend
   end
 
   private

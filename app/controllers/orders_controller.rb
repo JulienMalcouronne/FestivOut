@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   def create
   item = Item.find(params[:item_id])
   order  = Order.create!(item: item, item_sku: item.name, amount: item.price, state: 'pending', user: current_user)
-
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
