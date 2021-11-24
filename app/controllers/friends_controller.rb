@@ -20,9 +20,9 @@ class FriendsController < ApplicationController
 
   def index
     @user = current_user
-    @friends = @user.friends
-    # @friends = policy_score(@user.friends)
-    @friends = policy_score(Friend)
+    # @friends = @user.friends
+    @friends = policy_scope(@user.friends)
+    # @friends = policy_scope(Friend)
     @friend = Friend.new
     # authorize @friend
   end
