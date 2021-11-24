@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "begin seeding"
+Order.destroy_all
 Item.destroy_all
 Shop.destroy_all
 address = ["16, Vla Gaudelet, 75011 Paris", "79 Av. de la République, 75011 Paris", "67 Av. de la République, 75011 Paris", "12bis Vla Gaudelet, 75011 Paris", "84 Av. de la République, 75011 Paris", "La Halle aux Fruits, 104-106 Rue Oberkampf, 75011 Paris", "75 Av. de la République, 75011 Paris" ]
