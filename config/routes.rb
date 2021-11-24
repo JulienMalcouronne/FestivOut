@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/map",to: "pages#map"
   resources :friends, only: [:new, :create, :index]
   resources :festivals do
+    resources :point_of_interests, only: [:index, :show]
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
