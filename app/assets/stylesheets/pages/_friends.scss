@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   margin: 13px;
+  border: #8661C1;
+  #friend_username{
+
+  }
 }
+
 span{
   color: #edab18;
 }
@@ -23,8 +28,6 @@ span{
   }
 
   .fa-user-times{
-    margin-left: 130px;
-    margin-right: 20px;
     color: #8661C1;
     font-size: 20px;
   }
@@ -32,4 +35,10 @@ span{
     color: #8661C1;
     font-size: 20px;
   }
+}
+
+.friends-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
