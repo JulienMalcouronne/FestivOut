@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/friends", to: "pages#friends"
   mount StripeEvent::Engine, at: '/stripe-webhooks'
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
+
   get "/map",to: "pages#map"
   resources :friends, only: [:new, :create, :index]
   resources :festivals do
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
     resources :shops, only: [:new, :create, :show, :index] do
       resources :items, only: [:new, :create]
     end
