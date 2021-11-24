@@ -5,4 +5,9 @@ class ChatroomsController < ApplicationController
     @festival = Festival.find(params[:festival_id])
     authorize @chatroom
   end
+
+  def index
+    @chatrooms = policy_scope(Chatroom)
+    @festival = Festival.find(params[:festival_id])
+  end
 end

@@ -10,6 +10,9 @@ Order.destroy_all
 Item.destroy_all
 Shop.destroy_all
 PointOfInterest.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+
 address = ["16, Vla Gaudelet, 75011 Paris", "79 Av. de la République, 75011 Paris", "67 Av. de la République, 75011 Paris", "12bis Vla Gaudelet, 75011 Paris", "84 Av. de la République, 75011 Paris", "La Halle aux Fruits, 104-106 Rue Oberkampf, 75011 Paris", "75 Av. de la République, 75011 Paris" ]
 name = ["Kentucky fried Chicken", "Secret bar", "bar num 2", "Main restaurant", "clothes and more", "goodies"]
 price = rand(5...20)
@@ -49,6 +52,16 @@ end
   )
   point.save!
 end
-
-
+Chatroom.create!(
+  name: "General",
+  festival_id: Festival.all.first.id
+)
+Chatroom.create!(
+  name: "Lost Items",
+  festival_id: Festival.all.first.id
+)
+Chatroom.create!(
+  name: "Track Id",
+  festival_id: Festival.all.first.id
+)
 puts "seeding end"

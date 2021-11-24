@@ -1,1 +1,17 @@
-hello
+<h2>All chatrooms:</h2>
+
+<% @chatrooms.each do |chatroom| %>
+  <li class="mb-3" style="list-style: none;">
+    <div class="card-trip">
+      <img src="https://static.actu.fr/uploads/2021/03/food-truck1.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= chatroom.name %></h2>
+          <div class="card-trip-pricing">
+            <%= link_to "See the menu", festival_chatroom_path(@festival.id, chatroom.id)%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>
