@@ -9,9 +9,10 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
       @chatroom,
-      render_to_string(partial: "message", locals: {message: @message})
+      render_to_string(partial: "message", locals: {message: @message, current_user: nil})
     )
       redirect_to festival_chatroom_path(@festival, @chatroom, anchor: "message-#{@message.id}")
+
     else
       render "chatrooms/show"
     end
