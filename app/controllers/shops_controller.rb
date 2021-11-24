@@ -4,11 +4,28 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.all
     @festival = Festival.find(params[:festival_id])
+    @shops = @shops.search_by_name_and_address(params[:query])
+
+        @markers = @shops.geocoded.map do |shop|
+      {
+        lat: shop.latitude,
+        lng: shop.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { shop: shop }),
+        image_url: helpers.asset_url("rocket.png")
+      }
+    end
   end
 
   def show
     @festival = Festival.find(params[:festival_id])
     @shop = Shop.includes(:items).find(params[:id])
+    @markers = [
+      {
+        lat: @shop.latitude,
+        lng: @shop.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+        image_url: helpers.asset_url("outlogo.png")
+      }]
 
   end
 
@@ -37,6 +54,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :festival_id)
+    params.require(:shop).permit(:name,:address, :festival_id)
   end
 end
