@@ -22,3 +22,7 @@ body{
   background-color: #EEEEEE;
   color: #002A32;
 }
+
+.content-wrapper {
+  height: calc(100vh - 70px - 70px);
+}
