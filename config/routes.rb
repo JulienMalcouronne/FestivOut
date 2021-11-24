@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/friends", to: "pages#friends"
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   get "/map",to: "pages#map"
   resources :friends, only: [:new, :create, :index]
   resources :festivals do
