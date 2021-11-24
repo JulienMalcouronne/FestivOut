@@ -1,9 +1,20 @@
-<h1>Hello <%= @user.first_name.capitalize %>, you have <%= @friends.length %> friends</h1>
+<% friendship = @friends.length + current_user.friend_requests.length %>
+<h1>Hello <%= @user.first_name.capitalize %>, you have <%=pluralize friendship, "friend" %> </h1>
 <br>
 <div class="add"><%= link_to "Add a friend", "/friends/new"%></div>
 <div class="friends">
-    <% if current_user.friends != nil %>
+    <% if current_user.friends.any? %>
       <% friends = current_user.friends %>
+      <% friends.each do |friend| %>
+      <li><img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt=""> <%= friend.friend["username"] %>
+      <i class="fas fa-user-times"></i>
+      <i class="fas fa-location-arrow"></i></li>
+      <% end  %>
+    <% end  %>
+
+    <% if current_user.friend_requests.any? %>
+    <p>find below all guys added you</p>
+      <% friends = current_user.friend_requests %>
       <% friends.each do |friend| %>
       <li><img class="avatar-large" src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
       <i class="fas fa-user-times"></i>
