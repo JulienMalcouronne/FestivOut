@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  background: #edab18;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0px 10px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  align-items: center;
+}
+.footer-links a {
+  color: #EEEEEE;
+  opacity: 0.9;
+  text-decoration: none;
+  font-size: 28px;
+  padding: 0px 10px;
+}
