@@ -1,1 +1,23 @@
-Hello
+<h2>Hello <span><%= @user.first_name.capitalize %></span>, you have <span><%= @friends.length %> </span>friends</h1>
+<br>
+<div class="friends-form">
+  <div>
+    <h2 class="mt-2" >Add a friend with its username ! </h2>
+      <div class="input">
+        <%=simple_form_for @friend do |f|  %>
+          <%= f.text_field :username, value: "" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="friends">
+    <% if current_user.friends != nil %>
+      <% friends = current_user.friends %>
+      <% friends.each do |friend| %>
+      <li><img class="avatar-large" src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
+      <i class="fas fa-user-times"></i>
+      <i class="fas fa-location-arrow"></i></li>
+      <% end  %>
+    <% end  %>
+</div>
