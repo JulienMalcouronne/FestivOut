@@ -14,34 +14,23 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: 'mapbox://styles/mapbox/dark-v10' // <-- you can use your own
+      style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb' // <-- you can use your own
     });
 
-    this._addMarkersToMap();
-    this._fitMapToMarkers();
+   this._addMarkersToMap();
+   this._fitMapToMarkers();
 
     this.map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     }));
   }
-
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-
-      // Create a HTML element for your custom marker
-      const customMarker = document.createElement('div');
-      customMarker.className = 'marker';
-      customMarker.style.backgroundImage = `url('${marker.image_url}')`;
-      customMarker.style.backgroundSize = 'contain';
-      customMarker.style.width = '25px';
-      customMarker.style.height = '25px';
-
-      // Pass the element as an argument to the new marker
-      new mapboxgl.Marker(customMarker)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
+      new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
+        .setPopup(popup) // add this
         .addTo(this.map);
     });
   }
