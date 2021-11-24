@@ -11,6 +11,8 @@
 @import "font-awesome";
 @import "hamburgers/dist/hamburgers";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+
 
 // Your CSS partials
 @import "components/index";
