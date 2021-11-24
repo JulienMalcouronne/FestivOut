@@ -1,15 +1,15 @@
 <div class="mt-3">
   <h1 class="text-center mt-1">BURNING MAN 2021</h1>
   <div class="row">
-    <div class="col-6"><%= image_tag "fast-food.png", alt: "Le Wagon", width: 60 %><p>Food & Beverage</p></div>
-    <div class="col-6" ><%= image_tag "panneau-de-direction.png", alt: "Le Wagon", width: 60 %><p>Map</p></div>
+    <div class="col-6"><%= image_tag "fast-food.png", alt: "Le Wagon", width: 60 %><p><%= link_to "Food & Beverage", festival_shops_path(festival_id: 1) %></p></div>
+    <div class="col-6" ><%= image_tag "panneau-de-direction.png", alt: "Le Wagon", width: 60 %><p> <%= link_to "Map", "/map"  %></p></div>
   </div>
   <div class="row">
-    <div class="col-6"><%= image_tag "friendship.png", alt: "Le Wagon", width: 60 %></a><p>Friends</p></div>
+    <div class="col-6"><%= image_tag "friendship.png", alt: "Le Wagon", width: 60 %></a><p><%= link_to "Friend", "/friends"  %></p></div>
     <div class="col-6"><%= image_tag "calling.png", alt: "Le Wagon", width: 60 %><p>Help<p></div>
   </div>
   <div class="row">
-    <div class="col-6"> <%= image_tag "store.png", alt: "Le Wagon", width: 60 %><p>Shop</p></div>
+    <div class="col-6"> <%= image_tag "store.png", alt: "Le Wagon", width: 60 %><p><%= link_to "Shops", festival_shops_path(festival_id: 1)  %> </p></div>
     <div class="col-6" ><a href="/festivals"><%= image_tag "concert.png", alt: "Le Wagon", width: 60 %><p>Planning</p></div>
   </div>
 </div>
