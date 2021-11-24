@@ -1,7 +1,17 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div class="message d-flex align-items-center <%= message.user == current_user ? "ownmessage" : "othermessage" %>" id="message-<%= message.id %>">
+  <div class="chatinfo">
+    <% if message.user.avatar.attached? %>
+      <div style="margin-right: 5px;">
+        <img src="<%= cl_image_path message.user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+      </div>
+    <% else %>
+      <div style="margin-right: 5px;">
+        <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+      </div>
+    <% end %>
+  </div>
+  <div class="chatcontent">
+    <div style="font-size: 14px;"><strong><%= message.user.username %></strong> - <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></div>
+    <p style="margin-bottom: 0px;" ><%= message.content %></p>
+  </div>
 </div>
