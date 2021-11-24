@@ -1,1 +1,39 @@
-Hello
+<% friendship = @friends.length + current_user.friend_requests.length %>
+<h1 class="text-center mt-3">Hello <span><%= @user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
+<br>
+<div class="friends-form">
+  <div>
+    <h2 class="text-center mt-2" >Add a friend with its username ! </h2>
+      <div class="input">
+        <%=simple_form_for @friend do |f|  %>
+          <%= f.text_field :username, value: "" %>
+          <%= f.submit value:"Add"%>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="friends">
+    <% if current_user.friends.any? %>
+      <% friends = current_user.friends %>
+      <% friends.each do |friend| %>
+        <li>
+          <div class="friends-list">
+              <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt=""> <%= friend.friend["username"] %>
+            <div>
+              <i class="fas fa-user-times"></i>
+              <i class="fas fa-location-arrow"></i>
+            </div>
+          </div>
+        </li>
+        <% end  %>
+      <% end  %>
+    <% if current_user.friend_requests.any? %>
+    <p>Here are your pending requests</p>
+      <% friends = current_user.friend_requests %>
+      <% friends.each do |friend| %>
+      <li><img class="avatar-large" src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
+      <i class="fas fa-user-times"></i>
+      <i class="fas fa-location-arrow"></i></li>
+      <% end  %>
+    <% end  %>
+</div>

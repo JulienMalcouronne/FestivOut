@@ -17,6 +17,12 @@ class FriendsController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    @friends = @user.friends
+    @friend = Friend.new
+  end
+
   private
 
   def friend_params

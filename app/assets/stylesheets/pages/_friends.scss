@@ -1,18 +1,15 @@
-.add{
+.input{
   display: flex;
   justify-content: center;
-  a{
-    color: #EEEEEE;
-    font-size: 20px;
-    border: 2px solid #002A32;
-    border-radius: 13px;
-    padding: 3px;
-    width: 135px;
-    background-color: #002A32;
+  margin: 13px;
+  border: #8661C1;
+  #friend_username{
+
   }
-  h2{
-    font-size: 20px;
-  }
+}
+
+span{
+  color: #edab18;
 }
 .friends{
 
@@ -31,8 +28,6 @@
   }
 
   .fa-user-times{
-    margin-left: 130px;
-    margin-right: 20px;
     color: #8661C1;
     font-size: 20px;
   }
@@ -40,4 +35,10 @@
     color: #8661C1;
     font-size: 20px;
   }
+}
+
+.friends-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
