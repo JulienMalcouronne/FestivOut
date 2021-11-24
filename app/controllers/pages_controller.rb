@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   def friends
     @user = current_user
     @friends = @user.friends
+    @friend = Friend.new
   end
 end

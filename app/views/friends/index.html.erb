@@ -1,7 +1,17 @@
 <% friendship = @friends.length + current_user.friend_requests.length %>
-<h1>Hello <%= @user.first_name.capitalize %>, you have <%=pluralize friendship, "friend" %> </h1>
+<h1>Hello <span><%= @user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
 <br>
-<div class="add"><%= link_to "Add a friend", "/friends/new"%></div>
+<div class="friends-form">
+  <div>
+    <h2 class="mt-2" >Add a friend with its username ! </h2>
+      <div class="input">
+        <%=simple_form_for @friend do |f|  %>
+          <%= f.text_field :username, value: "" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+  </div>
+</div>
 <div class="friends">
     <% if current_user.friends.any? %>
       <% friends = current_user.friends %>
