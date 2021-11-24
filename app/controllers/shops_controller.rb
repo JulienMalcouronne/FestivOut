@@ -4,6 +4,15 @@ class ShopsController < ApplicationController
   def index
     @shops = policy_scope(Shop)
     @festival = Festival.find(params[:festival_id])
+      @markers = @shops.geocoded.map do |shop|
+    {
+      lat: shop.latitude,
+      lng: shop.longitude
+      info_window: render_to_string(partial: "info_window", locals: { shop: @shop }),
+      image_url: helpers.asset_url("outlogo.png")
+      }]
+    authorize @shop
+    end
   end
 
   def show
