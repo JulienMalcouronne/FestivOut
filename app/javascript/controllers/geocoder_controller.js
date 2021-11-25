@@ -11,6 +11,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
     });
+    navigator.geolocation.getCurrentPosition(success, error, [options])
     this.geocoder.addTo(this.element);
 
     this.geocoder.on("result", event => this._setInputValue(event));
