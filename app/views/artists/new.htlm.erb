@@ -1,0 +1,9 @@
+        <%=simple_form_for [@festival, @day, @artist] do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, as: :name %>
+          <%= f.label :start_time %>
+          <%= f.number_field :start_time, as: :start_time %>
+          <%= f.label :finish_time %>
+          <%= f.number_field :finish_time, as: :finish_time %>
+          <%= f.submit %>
+        <% end %>

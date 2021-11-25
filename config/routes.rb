@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :friends, only: [:new, :create, :index]
   resources :localize_users, only: [:update]
   resources :festivals do
+    resources :days, only: [:new, :create, :show, :index] do
+      resources :artists, only: [:new, :create]
+    end
     resources :point_of_interests, only: [:index, :show]
     resources :chatrooms, only: [:show, :index] do
       resources :messages, only: :create
