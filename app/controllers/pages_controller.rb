@@ -19,6 +19,14 @@ class PagesController < ApplicationController
       info_window: render_to_string(partial: "shops/info_window", locals: { shop: shop })
     }
     end
-
+      @point_of_interests = policy_scope(PointOfInterest)
+        @interests = @point_of_interests.geocoded.map do |point_of_interest|
+      {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        # image_url: helpers.asset_url("outlogo.png")
+      }
+    end
   end
 end
