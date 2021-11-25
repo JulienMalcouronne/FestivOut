@@ -28,8 +28,16 @@ class PagesController < ApplicationController
         # image_url: helpers.asset_url("outlogo.png")
       }
     end
+        # @users = User.includes(:friends)
+        #              .references(:friends)
+        #              .where("friend_id = ? OR user_id = ?", current_user.id, current_user.id)
+
 
         @users = User.all.map do |user|
+        # @users = []
+        # @users << current_user.friend_requests.map(&:user) if current_user.friend_requests.any?
+        # @users << current_user.friends.map(&:friend) if current_user.friends.any?
+        # @users.flatten.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
