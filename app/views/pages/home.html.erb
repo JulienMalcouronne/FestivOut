@@ -2,7 +2,11 @@
 <div class="banner content-wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/564x/fe/17/de/fe17de19c2e7f27ecbecdcac0c61835e.jpg); object-fit: cover:">
   <div class="container">
     <div class="account d-flex align-items-center justify-content-end">
-      <h4 class="pr-2 mb-0" style="color: #EEEEEE">  <%=  current_user.username if current_user %></h4>
+     <% if current_user %>
+      <h4 class="pr-2 mb-0" style="color: #EEEEEE">
+        <%=  current_user.username %>
+      </h4>
+     <% end  %>
       <div>
         <% if user_signed_in? %>
           <% if current_user.avatar.attached? %>

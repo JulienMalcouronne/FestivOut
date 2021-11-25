@@ -1,4 +1,10 @@
-<div class="footer footer-links" data-controller="localize" data-localize-url-value="<%= localize_user_path(current_user) %>">
+<div
+  class="footer footer-links"
+  <% if current_user %>
+  data-controller="localize"
+  data-localize-url-value="<%= localize_user_path(current_user) %>"
+  <% end %>
+>
   <a href="/"><i class="fas fa-home"></i></a>
   <a href="/festivals/1/chatrooms"><i class="fas fa-comment"></i></a>
   <a href="/map"><i class="fas fa-map-marker-alt"></i></a>
