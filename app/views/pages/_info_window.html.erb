@@ -1,0 +1,14 @@
+<div class="popup">
+  <h3><%= user.username %></h3>
+      <% if user.avatar.attached? %>
+      <div style="margin-right: 5px;">
+        <img src="<%= cl_image_path user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+      </div>
+    <% else %>
+      <div style="margin-right: 5px;">
+        <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+      </div>
+    <% end %>
+  <div>
+  </div>
+</div>
