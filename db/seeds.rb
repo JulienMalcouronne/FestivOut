@@ -49,10 +49,10 @@ pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Pa
   end
 end
 
-3.times do
+nameday.each do |name|
   days = []
   day = Day.create!(
-    name: nameday.sample,
+    name: name,
     festival_id: Festival.all.first.id
   )
   days << day
