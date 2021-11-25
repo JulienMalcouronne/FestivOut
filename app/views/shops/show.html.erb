@@ -1,28 +1,28 @@
 
-<h2 class="text-center"><%=@shop.name%></h2>
+  <h2 class="text-center"><%=@shop.name%></h2>
 
-<% @shop.items.each do |item| %>
-  <li style="list-style: none;">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= item.name %> - <%= item.price %> €</h2>
-        <p><%= item.description %></p>
-          <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'item_id', item.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-          <% end %>
+  <% @shop.items.each do |item| %>
+    <li style="list-style: none;">
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= item.name %> - <%= item.price %> €</h2>
+          <p><%= item.description %></p>
+            <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'item_id', item.id %>
+            <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <% end %>
+        </div>
       </div>
-    </div>
-  </li>
-<% end  %>
+    </li>
+  <% end  %>
 
 
 
-<br>
-<h2>Your cart</h2>
-<h3>-------------------------------------<h3>
+  <br>
+  <h2>Your cart</h2>
+  <h3>-------------------------------------<h3>
 
 
-<h2><strong>total price: </strong></h2>
-<a href="" class="btn btn-primary">proceed to checkouts</a>
+  <h2><strong>total price: </strong></h2>
+  <a href="" class="btn btn-primary">proceed to checkouts</a>
