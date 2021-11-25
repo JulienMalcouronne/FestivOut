@@ -1,0 +1,17 @@
+<h1 class="text-center">Select a day</h1>
+
+<% @days.each do |day| %>
+  <li class="mb-3" style="list-style: none;">
+    <div class="card-trip">
+      <img src="https://www.budapest-bons-plans.fr/wp-content/uploads/2018/01/8U5A4056.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= day.name %></h2>
+          <div class="card-trip-pricing">
+            <%= link_to "See the menu", festival_day_path(@festival.id, day.id)%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

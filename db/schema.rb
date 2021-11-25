@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_153729) do
+ActiveRecord::Schema.define(version: 2021_11_25_135147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,36 @@ ActiveRecord::Schema.define(version: 2021_11_24_153729) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "finish_time"
+    t.bigint "day_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["day_id"], name: "index_artists_on_day_id"
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.bigint "festival_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["festival_id"], name: "index_chatrooms_on_festival_id"
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.text "name"
+    t.bigint "festival_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["festival_id"], name: "index_days_on_festival_id"
+  end
+
+  create_table "eventdays", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "festivals", force: :cascade do |t|
@@ -135,7 +159,9 @@ ActiveRecord::Schema.define(version: 2021_11_24_153729) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "artists", "days"
   add_foreign_key "chatrooms", "festivals"
+  add_foreign_key "days", "festivals"
   add_foreign_key "friends", "users"
   add_foreign_key "friends", "users", column: "friend_id"
   add_foreign_key "items", "shops"
