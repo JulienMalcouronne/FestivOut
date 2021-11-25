@@ -1,17 +1,18 @@
-<h1 class="text-center">Select a shop</h1>
-
-<% @shops.each do |shop| %>
-  <li class="mb-3" style="list-style: none;">
-    <div class="card-trip">
-      <img src="https://static.actu.fr/uploads/2021/03/food-truck1.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= shop.name %></h2>
-          <div class="card-trip-pricing">
-            <%= link_to "See the menu", festival_shop_path(@festival.id, shop.id)%>
+<div class="content-wrapper">
+  <h1 class="text-center" style="color:#8661c1;height: 50px; background-color:#EEEEEE; align-items:center;display:flex;justify-content:center;">Select a shop</h1>
+  <% @shops.each do |shop| %>
+    <li class="mb-3" style="pt-8;list-style: none;">
+      <div class="card-trip">
+        <img src="https://static.actu.fr/uploads/2021/03/food-truck1.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= shop.name %></h2>
+            <div class="card-trip-pricing">
+              <%= link_to "See the menu", festival_shop_path(@festival.id, shop.id)%>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </li>
-<% end %>
+    </li>
+  <% end %>
+</div>

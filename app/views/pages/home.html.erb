@@ -1,38 +1,36 @@
 
-<div class="banner content-wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static.euronews.com/articles/stories/05/42/38/88/1440x810_cmsv2_6e94f611-cc4a-59b4-a57e-d7b9fe7336c8-5423888.jpg); object-fit: cover:">
+<div class="banner content-wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/564x/fe/17/de/fe17de19c2e7f27ecbecdcac0c61835e.jpg); object-fit: cover:">
   <div class="container">
-    <h1 class="text-center" style="margin-bottom: 20px;">Welcome to <strong> <%= Festival.all.first.name %></strong>, <%= current_user.first_name %></h1>
-    <div class="cards mt-5">
-      <div class="card-category">
-        <div class="text-center mt-2"><%= image_tag "chat.png", alt: "Le Wagon", width: 60 %></div>
-        <p class="text-center mt-2"><%= link_to "Chat", "/festivals/1/chatrooms"%></p>
-      </div>
-
-      <div class="card-category text-center mt-2">
-        <div><%= image_tag "panneau-de-direction.png", alt: "Le Wagon", width: 60 %></div>
-        <p> <%= link_to "Map", "/map"  %></p>
-      </div>
-
-      <div class="card-category text-center mt-2">
-        <div><%= image_tag "friendship.png", alt: "Le Wagon", width: 60 %></div>
-        <p><%= link_to "Friend", "/friends"  %></p>
-      </div>
-
-      <div class="card-category text-center mt-2">
-        <div><%= image_tag "concert.png", alt: "Le Wagon", width: 60 %></div>
-        <p><%= link_to "Days", festival_days_path(festival_id: 1) %></p>
-      </div>
-
-      <div class="card-category text-center mt-2">
-        <div><%= image_tag "fast-food.png", alt: "Le Wagon", width: 60 %></div>
-        <p><%= link_to "Shops", festival_shops_path(festival_id: 1) %></p>
-      </div>
-
-      <div class="card-category text-center mt-2">
-        <div><%= image_tag "calling.png", alt: "Le Wagon", width: 60 %></div>
-        <p>SOS</p>
+    <div class="account d-flex align-items-center justify-content-end">
+     <% if current_user %>
+      <h4 class="pr-2 mb-0" style="color: #EEEEEE">
+        <%=  current_user.username %>
+      </h4>
+     <% end  %>
+      <div>
+        <% if user_signed_in? %>
+          <% if current_user.avatar.attached? %>
+            <div style="margin-left: 10px;">
+              <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            </div>
+          <% else %>
+            <div style="margin-left: 10px;">
+              <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
+    <h3 class="text-center" style="margin-top: 30px; margin-bottom: 20px; color: #EEEEEE;">Welcome to <strong> <%= Festival.first.name %></strong></h3>
   </div>
+  <div class="slider">
+    <div class="slide" id="slide-1">Planning</div>
+    <div class="slide" id="slide-2">Friends</div>
+    <div class="slide" id="slide-3">Chat</div>
+    <div class="slide" id="slide-4">Map</div>
+    <div class="slide" id="slide-5">Shops</div>
+    <div class="slide" id="slide-5">SOS</div>
+  </div>
+
 </div>

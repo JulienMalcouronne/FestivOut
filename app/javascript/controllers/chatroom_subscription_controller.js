@@ -10,7 +10,7 @@ export default class extends Controller {
       { received: data =>  {
         this.element.insertAdjacentHTML("beforeend", data);
         // console.log(this.element);
-        window.scrollTo(0,this.element.scrollHeight);
+        this.element.scrollTo(0,this.element.scrollHeight);
       }
     }
     )
@@ -21,6 +21,5 @@ export default class extends Controller {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
   }
-  
-}
 
+}
