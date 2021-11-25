@@ -8,13 +8,7 @@ class PointOfInterestsController < ApplicationController
   def show
     @festival = Festival.find(params[:festival_id])
     @point_of_interest = PointOfInterest.find(params[:id])
-    @markers = [
-      {
-        lat: @point_of_interest.latitude,
-        lng: @point_of_interest.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { point_of_interest: @point_of_interest }),
-        image_url: helpers.asset_url("outlogo.png")
-      }]
+
     authorize @point_of_interest
   end
 

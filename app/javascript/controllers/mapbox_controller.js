@@ -7,6 +7,7 @@ export default class extends Controller {
     apiKey: String,
     markers: Array,
     interests: Array,
+    users: Array,
   }
 
   connect() {
@@ -27,6 +28,7 @@ export default class extends Controller {
    this._addInterestsToMap();
    this._fitMapToMarkers();
    this._localizeUsers();
+   this._addUsersToMap();
     this._addImageToMap();
 
     this.map.addControl(new MapboxGeocoder({
@@ -56,6 +58,16 @@ export default class extends Controller {
   }
   _addInterestsToMap() {
     this.interestsValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
+      new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup) // add this
+        .addTo(this.map);
+    });
+  }
+
+  _addUsersToMap() {
+    this.usersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])

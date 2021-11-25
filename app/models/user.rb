@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :friend_requests, class_name: "Friend", foreign_key: "friend_id"
   has_many :messages
   has_many :orders
+  # geocoded_by :GeolocationPosition
 end
