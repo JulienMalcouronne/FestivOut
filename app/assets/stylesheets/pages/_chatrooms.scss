@@ -1,6 +1,5 @@
 .chatroom {
-  min-height: calc(100vh - 70px);
-  overflow: hidden;
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
 }
@@ -8,7 +7,6 @@
 .chat {
   flex-grow: 1;
   overflow-y: scroll;
-  margin-bottom: 70px;
 }
 
 .some {
