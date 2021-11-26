@@ -16,7 +16,8 @@ class PagesController < ApplicationController
     {
       lat: shop.latitude,
       lng: shop.longitude,
-      info_window: render_to_string(partial: "shops/info_window", locals: { shop: shop })
+      info_window: render_to_string(partial: "shops/info_window", locals: { shop: shop }),
+      image_url: helpers.asset_url("shooop.png")
     }
     end
       @point_of_interests = policy_scope(PointOfInterest)
@@ -25,25 +26,23 @@ class PagesController < ApplicationController
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        # image_url: helpers.asset_url("outlogo.png")
+        image_url: helpers.asset_url("outlogo.png")
       }
     end
-        # @users = User.includes(:friends)
-        #              .references(:friends)
-        #              .where("friend_id = ? OR user_id = ?", current_user.id, current_user.id)
 
+      friend_ids = Friend.where("user_id = ? OR friend_id = ?", current_user.id, current_user.id).pluck(:user_id, :friend_id)
+                         .flatten
+                         .uniq
+                         .reject { |id| id == current_user.id }
+      @users = User.where(id: friend_ids)
 
-        @users = User.all.map do |user|
-        # @users = []
-        # @users << current_user.friend_requests.map(&:user) if current_user.friend_requests.any?
-        # @users << current_user.friends.map(&:friend) if current_user.friends.any?
-        # @users.flatten.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
-        # image_url: helpers.asset_url("<%= cl_image_path user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>")
-      }
+      @users = @users.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
+          image_url: helpers.cloudinary_url(user.avatar.key)
+        }
     end
   end
 end

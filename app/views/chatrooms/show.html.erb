@@ -1,6 +1,6 @@
 <div class="chatroom container-fluid pt-3 ">
     <h1 class="text-center"><%= @chatroom.name.capitalize %> chatroom</h1>
-    <div class="messages chat" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+    <div class="messages chat" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-currentUser="<%= @user.id%>" >
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>

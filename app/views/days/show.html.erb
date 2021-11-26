@@ -1,6 +1,6 @@
 
 <h2 class="text-center"><%=@day.name%></h2>
-
+<div data-controller="reminder">
 <% @day.artists.each do |artist| %>
   <li style="list-style: none;">
     <div class="card-product">
@@ -9,9 +9,9 @@
         <h2><%= artist.name %> </h2>
         <p><%= artist.start_time %></p>
         <p><%= artist.finish_time %></p>
-          <%= submit_tag 'Reminder', class: 'btn btn-primary' %>
+          <%= submit_tag 'Reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
       </div>
     </div>
   </li>
+</div>
 <% end  %>
-
