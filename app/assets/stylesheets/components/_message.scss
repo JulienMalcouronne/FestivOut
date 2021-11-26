@@ -10,7 +10,7 @@
 }
 
 .ownmessage {
-  background-color: #edab18;
+  background-color: #8661c1;
   color: #EEEEEE;
   p {
     color: #EEEEEE;
@@ -22,6 +22,10 @@
   small {
     margin: 0px;
   }
+  .ownname {
+  font-size: 14px;
+  color: #EEEEEE;
+}
 }
 
 .othermessage {
@@ -39,6 +43,10 @@
   small {
     margin: 0px;
   }
+  .ownname {
+  font-size: 14px;
+  color: #002A32;
+}
 }
 
 .chatcontent {
