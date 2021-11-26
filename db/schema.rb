@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_135147) do
     t.index ["festival_id"], name: "index_days_on_festival_id"
   end
 
+  create_table "eventdays", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "festivals", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
