@@ -86,12 +86,13 @@ export default class extends Controller {
     this.map.on('load', () => {
       this.map.addSource("myImageSource", {
         "type": "image",
-        "url": "https://res.cloudinary.com/julienmal/image/upload/v1637778675/outlogo_b8qdpy.png",
+        "url": "https://res.cloudinary.com/julienmal/image/upload/v1637866363/images_ubyywk.jpg",
         "coordinates": [
-          [2.382219, 48.866724],
-          [2.378068, 48.866037],
-          [2.378218, 48.864278],
-          [2.381888, 48.863838],
+          [2.377325, 48.866314],
+          [2.384232, 48.86653],
+          [2.384095, 48.862848],
+          [2.373802, 48.862887],
+
         ]
       });
 

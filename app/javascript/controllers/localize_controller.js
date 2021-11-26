@@ -5,11 +5,9 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello")
     const url = `/`;
     const urlToUpdate = this.urlValue
     const test = navigator.geolocation.getCurrentPosition((data) => {
-      console.log(data);
       const userCordinatelat = data.coords.latitude
       const userCordinatelong = data.coords.longitude
       const position = {latitude: userCordinatelat, longitude: userCordinatelong}
