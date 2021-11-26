@@ -1,17 +1,20 @@
-<h1 class="text-center">Select a day</h1>
-
-<% @days.each do |day| %>
-  <li class="mb-3" style="list-style: none;">
-    <div class="card-trip">
-      <img src="https://www.budapest-bons-plans.fr/wp-content/uploads/2018/01/8U5A4056.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= day.name %></h2>
-          <div class="card-trip-pricing">
-            <%= link_to "See the menu", festival_day_path(@festival.id, day.id)%>
+  <div class="container-fluid content-wrapper chatroom chat pt-3 pb-3">
+    <h1 class="text-center">Select a day</h1>
+      <% @days.each do |day| %>
+      <div class="">
+        <li class="mb-3" style="list-style: none;">
+          <div class="card-trip" style="border-radius:4px;">
+            <img src="https://www.budapest-bons-plans.fr/wp-content/uploads/2018/01/8U5A4056.jpg" />
+            <div class="card-trip-infos" style="background-color:#8661C1;">
+              <div>
+                <h2 style="color:#EEEEEE;mb-1"><%= day.name %></h2>
+                <div class="card-trip-pricing">
+                  <%= link_to "Planning for the day", festival_day_path(@festival.id, day.id)%>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
+      <% end %>
     </div>
-  </li>
-<% end %>
+  </div>
