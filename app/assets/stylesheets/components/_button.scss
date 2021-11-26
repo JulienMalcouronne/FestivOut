@@ -11,13 +11,26 @@
   color: white;
 }
 
-.btn{
-  color:#EEEEEE;
-  font-weight: bold;
+.form-actions{
+  width: 100%;
+  background-color:#8661C1;
+  border-radius: 4px;
+  color: #EEEEEE;
+
+  .btn{
+    color:#EEEEEE;
+    font-weight: bold;
+  }
 }
 
 a{
-  color: #EEEEEE;
+  color:#EEEEEE;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.get-log{
+  padding-top: 10px;
 }
 
 .lost-login{
