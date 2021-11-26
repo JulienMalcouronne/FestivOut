@@ -17,7 +17,7 @@ class PagesController < ApplicationController
       lat: shop.latitude,
       lng: shop.longitude,
       info_window: render_to_string(partial: "shops/info_window", locals: { shop: shop }),
-      image_url: helpers.asset_url("shop.jpeg")
+      image_url: helpers.asset_url("shooop.png")
     }
     end
       @point_of_interests = policy_scope(PointOfInterest)
