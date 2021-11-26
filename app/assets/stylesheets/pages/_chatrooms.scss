@@ -8,3 +8,14 @@
   flex-grow: 1;
   overflow-y: scroll;
 }
+
+.chatlink {
+  a {
+    color: #EEEEEE;
+    border: 1px solid #EEEEEE;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  margin-top: 50px;
+  margin-bottom: 10px;
+}

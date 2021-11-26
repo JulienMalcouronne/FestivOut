@@ -3,6 +3,7 @@
   padding: 8px 24px;
   border-radius: 4px;
   background-color: #002A32;
+  transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
@@ -22,16 +23,8 @@
   }
 }
 
-a{
-  color:#EEEEEE;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 
 .get-log{
   padding-top: 10px;
-}
-
-.lost-login{
-  margin-top: 16px;
 }
