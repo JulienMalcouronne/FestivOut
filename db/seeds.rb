@@ -17,7 +17,7 @@ Day.destroy_all
 Chatroom.destroy_all
 
 nameday = ["Day 1", "Day 2", "Day 3"]
-time = ["11/01/2021 11:00"] 
+time = ["11/01/2021 11:00"]
 address = ["16, Vla Gaudelet, 75011 Paris", "1, Vla Gaudelet, 75011 Paris", "79 Av. de la République, 75011 Paris", "72 Av. de la République, 75011 Paris", "67 Av. de la République, 75011 Paris", "12bis Vla Gaudelet, 75011 Paris", "84 Av. de la République, 75011 Paris", "106 Rue Oberkampf, 75011 Paris", "110 Rue Oberkampf, 75011 Paris" , "75 Av. de la République, 75011 Paris", "66 Av. de la République, 75011 Paris" ]
 name = ["Kentucky fried Chicken", "Secret bar", "bar num 2", "Main restaurant", "clothes and more", "goodies store", "main merchandise store", "tacos bar", "take away bar and restaurant", "Pizza Yolo", "makdo", "kcf", "BK", "Pizza Hutte", "Food trucky", "cheezi truck"]
 price = rand(5...20)
@@ -80,10 +80,12 @@ end
   )
   point.save!
 end
+
 Chatroom.create!(
   name: "General",
   festival_id: Festival.all.first.id
 )
+
 Chatroom.create!(
   name: "Lost Items",
   festival_id: Festival.all.first.id
