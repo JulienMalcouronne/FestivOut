@@ -30,7 +30,8 @@
     <p>Here are your pending requests</p>
       <% friends = current_user.friend_requests %>
       <% friends.each do |friend| %>
-      <li><img class="avatar-large" src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
+      <li><img class="avatar-large"
+      src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
       <i class="fas fa-location-arrow"></i></li>
       <% end  %>
     <% end  %>

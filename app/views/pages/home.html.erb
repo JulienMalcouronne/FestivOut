@@ -11,18 +11,24 @@
         <% if user_signed_in? %>
           <% if current_user.avatar.attached? %>
             <div style="margin-left: 10px;">
-              <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+              <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
+              </div>
             </div>
           <% else %>
             <div style="margin-left: 10px;">
-              <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+              <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
+            </div>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
 
-    <h3 class="text-center" style="margin-top: 30px; margin-bottom: 20px; color: #EEEEEE;">Welcome to <strong> <%= Festival.first.name %></strong></h3>
+    <h3 class="text-center" style="margin-top: 40px; margin-bottom: 30px; color: #EEEEEE;">Welcome to <strong> <%= Festival.first.name %></strong></h3>
   </div>
   <div class="slider">
 
@@ -74,8 +80,4 @@
       <p class="text-center pt-2">In case of emergency, send your position to security and notify it to your friends</p>
     </div>
   </div>
-  <div class="container-fluid">
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-  </div>
-
 </div>
