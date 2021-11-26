@@ -10,11 +10,13 @@ class FriendsController < ApplicationController
     @friend.friend = User.where(username: params[:friend][:username]).first
     @friend.user = current_user
     authorize @friend
-    if @friend.save!
+    if @friend.save
       redirect_to "/friends"
       flash[:alert] = 'friend successfully added'
     else
-      render :new
+      @user = current_user
+      @friends = policy_scope(@user.friends)
+      render :index
     end
   end
 
