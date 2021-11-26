@@ -9,7 +9,11 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data =>  {
         this.element.insertAdjacentHTML("beforeend", data);
-        // console.log(this.element);
+        const messageElement = this.element.querySelector(".message:last-child");
+        if (this.element.dataset.currentuser !== messageElement.dataset.senderid) {
+          messageElement.classList.add("othermessage")
+        }
+        document.getElementById('message_content').value = "";
         this.element.scrollTo(0,this.element.scrollHeight);
       }
     }

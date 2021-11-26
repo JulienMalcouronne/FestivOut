@@ -1,4 +1,4 @@
-<div class="message d-flex align-items-center <%= message.user == current_user ? "ownmessage" : "othermessage" %>" id="message-<%= message.id %>">
+<div class="message d-flex align-items-center <%= message.user == current_user ? "ownmessage" : "othermessage" %>" id="message-<%= message.id %>" data-senderId="<%= current_user.id %>" >
   <div class="chatinfo">
     <% if message.user.avatar.attached? %>
       <div style="margin-right: 5px;">
