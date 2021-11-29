@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post :refuse
     end
   end
-  resources :reminders, only: [:index]
+  resources :reminders, only: [:index, :create, :new]
   resources :localize_users, only: [:update]
   resources :festivals do
     resources :days, only: [:new, :create, :show, :index] do

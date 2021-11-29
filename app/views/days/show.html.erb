@@ -15,15 +15,19 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="Friday" role="tabpanel" aria-labelledby="friday-tab">
       <div data-controller="reminder">
-        <% @day.artists.each do |artist| %>
-        <%= artist.day.name %>
-          <li style="list-style: none;">
-            <div class="card-product">
-              <img src="<%= cl_image_path artist.image.key , height: 10 %>">
-              <div class="card-product-infos">
-                <h2><%= artist.name %></h2>
-                <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+
+          <% @day.artists.each do |artist| %>
+            <li style="list-style: none;">
+              <div class="card-product">
+                <img src="<%= cl_image_path artist.image.key , height: 10 %>">
+                <div class="card-product-infos">
+                  <h2><%= artist.name %></h2>
+                  <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
+                  <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
+
+
+                </div>
+
               </div>
             </div>
           </li>
@@ -40,7 +44,7 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+                <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
               </div>
             </div>
           </li>
@@ -57,7 +61,7 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+                <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
               </div>
             </div>
           </li>
