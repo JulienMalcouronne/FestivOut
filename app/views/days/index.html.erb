@@ -22,7 +22,7 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+               <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
               </div>
             </div>
           </li>
@@ -38,7 +38,7 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+                <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
               </div>
             </div>
           </li>
@@ -54,7 +54,7 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+               <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
               </div>
             </div>
           </li>
