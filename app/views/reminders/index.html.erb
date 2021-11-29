@@ -3,8 +3,11 @@
     <div class="messages chat" data-controller="reminder-subscription" data-reminder-subscription-friend-id-value="<%= @reminder.id %>" data-currentUser="<%= @user.id%>" >
       <%# <% @chatroom.messages.each do |message| %>
       <% @reminders.each do |reminder| %>
-      <%= reminder.start_time %>
-      <%= reminder.end_time %>
+      <li>
+      <%= "you lauched your reminder #{reminder.start_time.strftime("at %I:%M%p")}" %>
+      <br>
+      <%= "The artist you want to see start #{reminder.end_time.strftime("at %I:%M%p")}"%>
+      </li>
         <%# <%= render "messages/message", message: message %>
       <% end %>
     </div>
