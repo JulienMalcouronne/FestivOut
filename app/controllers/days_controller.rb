@@ -3,6 +3,7 @@ class DaysController < ApplicationController
   def index
     @days = policy_scope(Day)
     @festival = Festival.find(params[:festival_id])
+    @days= @festival.days
   end
 
   def show
