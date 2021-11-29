@@ -4,7 +4,7 @@
   <% @shop.items.each do |item| %>
     <li style="list-style: none;">
       <div class="card-product">
-        <img src="https://cdn.pixabay.com/photo/2017/05/05/19/33/beer-2288121_1280.jpg" />
+        <img src="<%= cl_image_path item.image.key , height: 10 %>">
         <div class="card-product-infos">
           <h2><%= item.name.capitalize %> - <%= item.price %> €</h2>
           <strong><h6><%= item.description %></p></h6></strong>

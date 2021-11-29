@@ -5,7 +5,7 @@
     <% @day.artists.each do |artist| %>
       <li style="list-style: none;">
         <div class="card-product">
-          <img src="https://img.discogs.com/E6cMuuzsivFgpFLAD0ZaJTG_smA=/600x600/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-487291-1448024086-3738.jpeg.jpg" />
+          <img src="<%= cl_image_path artist.image.key , height: 10 %>">
           <div class="card-product-infos">
             <h2><%= artist.name %></h2>
             <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
