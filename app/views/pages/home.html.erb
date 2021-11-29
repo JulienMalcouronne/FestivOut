@@ -50,11 +50,16 @@
     </div>
 
     <div class="slide">
-      <h4>Friends</h4> <% current_user.friend_requests.each do |friend_request|%>
+      <h4>Friends</h4>
+
+      <% if current_user != nil %>
       <% test = 0 %>
+       <% current_user.friend_requests.each do |friend_request|%>
+
       <% if friend_request.status == "pending" %>
       <% test += 1 %>
      <p class="fake-notif" id="notif"> <%= test %></p>
+      <% end %>
       <% end %>
       <% end %>
       <a href= /friends>
