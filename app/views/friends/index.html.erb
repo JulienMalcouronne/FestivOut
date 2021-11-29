@@ -32,6 +32,16 @@
       <% friends.each do |friend| %>
       <li><img class="avatar-large"
       src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
+                  <% if friend.status != "accepted" %>
+                      <h2 id="master" class="btn btn-success"> <%= link_to "Confirm", confirm_friend_path(friend),
+                      method: :post %>
+                      </h2>
+                    <% end %>
+                    <% if friend.status != "canceled" %>
+                      <h2 id="masterr" class="btn btn-danger"> <%= link_to "Decline", refuse_friend_path(friend),
+                      method: :post %>
+                      </h2>
+                    <% end %>
       <i class="fas fa-location-arrow"></i></li>
       <% end  %>
     <% end  %>

@@ -1,1 +1,14 @@
 hello reminder
+<div class="reminder container-fluid pt-3 ">
+    <h1 class="text-center">All your reminders</h1>
+    <div class="messages chat" data-controller="reminder-subscription" data-reminder-subscription-friend-id-value="<%= @artist.id %>" data-currentUser="<%= @user.id%>" >
+      <%# <% @chatroom.messages.each do |message| %>
+        <%# <%= render "messages/message", message: message %>
+      <%# <% end %>
+    </div>
+
+  <div class="mt-2">
+    <div class="mb-0">
+    </div>
+  </div>
+</div>

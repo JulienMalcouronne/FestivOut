@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :orders
   # geocoded_by :GeolocationPosition
   has_many :notifications, as: :recipient
+  has_many :reminders
 end
