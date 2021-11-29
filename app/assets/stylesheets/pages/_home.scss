@@ -30,22 +30,14 @@ a{
   }
 }
 
-.list-days {
-  width: 305px;
-  flex-shrink: 0;
-  height: auto;
-  background-color: #8661c1;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  img{
-    height: 200px;
-    width: 200px;
-  }
-  h4 {
-    color: #EEEEEE
-  }
-  p {
-    font-size: 18px;
-  }
+
+
+.fake-notif p{
+  color: red;
+
+}
+
+#notif {
+  color: red;
+
 }

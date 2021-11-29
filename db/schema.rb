@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_135147) do
+ActiveRecord::Schema.define(version: 2021_11_29_144853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_135147) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "friend_id"
+    t.string "status", default: "pending"
     t.index ["friend_id"], name: "index_friends_on_friend_id"
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
@@ -100,6 +101,18 @@ ActiveRecord::Schema.define(version: 2021_11_25_135147) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.string "item_sku"
@@ -123,6 +136,15 @@ ActiveRecord::Schema.define(version: 2021_11_25_135147) do
     t.float "latitude"
     t.float "longitude"
     t.index ["festival_id"], name: "index_point_of_interests_on_festival_id"
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -166,5 +188,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_135147) do
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "point_of_interests", "festivals"
+  add_foreign_key "reminders", "users"
   add_foreign_key "shops", "festivals"
 end

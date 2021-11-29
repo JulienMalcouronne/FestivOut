@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/julienmal/image/upload/v1637778675/outlogo_b8qdpy.png"/>
-
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/julienmal/image/upload/v1638200037/Out_Logo_hl7loz.png"/>
+    <%# <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= render 'shared/ios_pwa_links' %>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
