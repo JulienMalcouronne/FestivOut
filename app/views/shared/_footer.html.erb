@@ -1,16 +1,22 @@
 
-<div
-  class="footer footer-links fixed-bottom"
-  <% if current_user %>
-  data-controller="localize"
-  data-localize-url-value="<%= localize_user_path(current_user) %>"
-  <% end %>
->
-  <a href="/"><i class="fas fa-home"></i></a>
-  <a href="/festivals/1/chatrooms"><i class="fas fa-comment"></i></a>
-  <a href="/map"><i class="fas fa-map-marker-alt"></i></a>
-  <a href="/festivals/1/shops"><i class="fas fa-shopping-cart"></i></a>
-  <%# <a href="#"><i class="fas fa-user-friends"></i></a> %>
-  <%# <a href="#"><i class="fas fa-calendar-alt"></i></a> %>
-  <a href="#"><i class="fas fa-first-aid"></i></a>
-</div>
+  <div
+    class="footer footer-links fixed-bottom"
+    <% if current_user %>
+    data-controller="localize"
+    data-localize-url-value="<%= localize_user_path(current_user) %>"
+    <% end %>
+  >
+
+    <a href="/" class='<%= controller_name == 'pages' && action_name == 'home'?'footer-link-active': 'footer-link-default'%>'>
+    <i class="fas fa-home" ></i></a>
+    <a href="/festivals/1/chatrooms" class ='<%= controller_name == 'chatrooms' && action_name == 'index'?'footer-link-active': 'footer-link-default'%>'>
+    <i class="fas fa-comment"></i></a>
+    <a href="/map"class='<%= controller_name == 'pages' && action_name == 'map'?'footer-link-active': 'footer-link-default'%>' >
+    <i class="fas fa-map-marker-alt"></i></a>
+    <a href="/festivals/1/shops"class='<%= controller_name == 'shops' && action_name == 'index'?'footer-link-active': 'footer-link-default'%>'>
+    <i class="fas fa-shopping-cart"></i></a>
+    <%# <a href="#"><i class="fas fa-user-friends"></i></a> %>
+    <%# <a href="#"><i class="fas fa-calendar-alt"></i></a> %>
+    <a href="#"class='<%= controller_name == 'pages' && action_name == 'first-aid'?'footer-link-active': 'footer-link-default'%>'>
+    <i class="fas fa-first-aid"></i></a>
+  </div>
