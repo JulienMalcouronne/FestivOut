@@ -9,4 +9,8 @@ export default class extends Controller {
   ) {
     console.log("hello")
   }
+
+  reminder(e) {
+    window.setInterval(autoRefresh, 60000);
+  }
 }

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   get "/map", to: "pages#map"
   resources :friends, only: [:new, :create, :index]
+  resources :reminders, only: [:index]
   resources :localize_users, only: [:update]
   resources :festivals do
     resources :days, only: [:new, :create, :show, :index] do
