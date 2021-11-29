@@ -19,8 +19,9 @@ export default class extends Controller {
       maxZoom: 20,
       minZoom: 4,
       zoom: 14,
-      style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb' // <-- you can use your own
+      style: 'mapbox://styles/theobcl/ckwkk2e5549jg14ockbokowue' // <-- you can use your own
     });
+
 
 
 
@@ -47,6 +48,7 @@ export default class extends Controller {
       })
     );
   }
+
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
@@ -55,8 +57,8 @@ export default class extends Controller {
       customMarker.className = 'marker';
       customMarker.style.backgroundImage = `url('${marker.image_url}')`;
       customMarker.style.backgroundSize = 'contain';
-      customMarker.style.width = '25px';
-      customMarker.style.height = '25px';
+      customMarker.style.width = '30px';
+      customMarker.style.height = '30px';
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
@@ -64,6 +66,7 @@ export default class extends Controller {
         .addTo(this.map);
     });
   }
+
   _addInterestsToMap() {
     this.interestsValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
@@ -72,8 +75,8 @@ export default class extends Controller {
       customMarker.className = 'marker';
       customMarker.style.backgroundImage = `url('${marker.image_url}')`;
       customMarker.style.backgroundSize = 'contain';
-      customMarker.style.width = '25px';
-      customMarker.style.height = '25px';
+      customMarker.style.width = '30px';
+      customMarker.style.height = '30px';
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
@@ -91,8 +94,8 @@ export default class extends Controller {
       customMarker.className = 'marker';
       customMarker.style.backgroundImage = `url('${marker.image_url}')`;
       customMarker.style.backgroundSize = 'contain';
-      customMarker.style.width = '25px';
-      customMarker.style.height = '25px';
+      customMarker.style.width = '30px';
+      customMarker.style.height = '30px';
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
