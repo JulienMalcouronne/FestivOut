@@ -16,4 +16,12 @@ class FriendPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def confirm?
+    true
+  end
+
+  def refuse?
+    true
+  end
 end
