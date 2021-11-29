@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 puts "begin seeding"
 
 Order.destroy_all
@@ -27,27 +28,30 @@ desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because 
 pointName = ["toilette 1", "toilette 2", "scene 1", "scene 2", "ATM", "exit", "entry"]
 pointDesc = ["Main", "Second"]
 pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Paris", "1 Vla Gaudelet, 75011 Paris", "7 Vla Gaudelet, 75011 Paris", "115 Rue Oberkampf, 75011 Paris","120 Rue Oberkampf, 75011 Paris", "15 Av. Jean Aicard, 75011 Paris", "19 Av. Jean Aicard, 75011 Paris", "71 Rue Servan, 75011 Paris", "69 Rue Servan, 75011 Paris", "3 Rue Saint-Hubert, 75011 Paris", "9 Rue Saint-Hubert, 75011 Paris", "78 Rue Saint-Maur, 75011 Paris", "96 Rue Saint-Maur, 75011 Paris", "68 Av. de la République, 75011 Paris", "78 Av. de la République, 75011 Paris", "53 Av. de la République, 75011 Paris", "58 Av. de la République, 75011 Paris"]
-7.times do
-  shops = []
+picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg", "souvenir.jpeg"]
+picForFoodsAndDrinks = ["fries1.jpeg", "fries2.jpeg", "pizza1.jpeg", "pizza2.jpeg", "pizza3.jpeg", "burger1.jpeg", "burger2.jpeg", "burger3.jpeg", "beer.jpeg", "beer2.jpeg", "water.jpeg", "white_wine.jpeg", "red_wine.jpeg", "coca.jpeg"]
+picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg", "artist5.jpeg"]
+
+5.times do |index|
   shop = Shop.create!(
     name: name.sample,
     address: address.sample,
     festival_id: Festival.all.first.id
   )
-  shops << shop
-  shops.each do |shop|
-    rand(5..10).times do
+  shop.image.attach(io: File.open("app/assets/images/#{picForRestaurant[index]}"), filename: "#{picForRestaurant[index]}")
+    5.times do |index|
       item = Item.create!(
         name: itemName.sample,
         description: desc.sample,
         price: rand(5..20),
         shop_id: shop.id
       )
-      shop.save!
+      item.image.attach(io: File.open("app/assets/images/#{picForFoodsAndDrinks[index]}"), filename: "#{picForFoodsAndDrinks[index]}")
       item.save!
     end
-  end
-end
+      shop.save!
+    end
+# end
 
 nameday.each do |name|
   days = []
@@ -57,7 +61,7 @@ nameday.each do |name|
   )
   days << day
   days.each do |day|
-    rand(5..10).times do
+    5.times do |index|
       start = DateTime.parse(time.sample)
       artist = Artist.create!(
         name: artistName.sample,
@@ -65,8 +69,9 @@ nameday.each do |name|
         finish_time: start + (1/24.0),
         day_id: day.id
       )
-      day.save!
-      artist.save!
+        artist.image.attach(io: File.open("app/assets/images/#{picForArtists[index]}"), filename: "#{picForArtists[index]}")
+        day.save!
+        artist.save!
     end
   end
 end

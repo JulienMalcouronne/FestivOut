@@ -9,7 +9,7 @@
                   <h2 style=" min-height: 60px;"><%= shop.name.capitalize %></h2>
                 </div>
                 <div>
-                  <img src="https://cdn.pixabay.com/photo/2016/11/20/09/06/bowl-1842294__340.jpg" style="height:200px;width:200px; padding-bottom:10px"alt="">
+                  <img src="<%= cl_image_path shop.image.key , height: 10 %>" style="height:200px;width:200px; padding-bottom:10px"alt="" >
                 </div>
                 <div>
                   <%= link_to "See the menu", festival_shop_path(@festival.id, shop.id)%>
