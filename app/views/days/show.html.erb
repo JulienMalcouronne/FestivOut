@@ -1,4 +1,4 @@
-<div class="container-fluid content-wrapper chatroom ">
+<div class="container-fluid content-wrapper chatroom pt-5">
   <div class="chat">
     <h2 class="text-center"><%=@day.name%></h2>
     <div data-controller="reminder">
@@ -7,10 +7,9 @@
         <div class="card-product">
           <img src="<%= cl_image_path artist.image.key , height: 10 %>">
           <div class="card-product-infos">
-            <h2><%= artist.name %> </h2>
-            <p><%= artist.start_time %></p>
-            <p><%= artist.finish_time %></p>
-            <%= submit_tag 'Reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
+            <h2><%= artist.name %></h2>
+            <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
+            <%= submit_tag 'Add a reminder', class: 'btn btn-primary', data: {action: "click->reminder#activate"} %>
           </div>
         </div>
       </li>
