@@ -1,7 +1,7 @@
 <div class="chatroom container-fluid pt-5">
   <div class="chat">
     <h2>All chatrooms</h2>
-     <div class="slider">
+    <div class="slider">
       <% @chatrooms.each do |chatroom| %>
         <div class="slide">
           <h4><%= chatroom.name %></h4>
@@ -11,8 +11,8 @@
               <%= link_to "Enter the chat ", festival_chatroom_path(@festival.id, chatroom.id)%>
             </div>
           </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>

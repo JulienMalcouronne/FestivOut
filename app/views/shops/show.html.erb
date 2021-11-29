@@ -6,23 +6,20 @@
       <div class="card-product">
         <img src="https://cdn.pixabay.com/photo/2017/05/05/19/33/beer-2288121_1280.jpg" />
         <div class="card-product-infos">
-          <h2><%= item.name %> - <%= item.price %> €</h2>
-          <p><%= item.description %></p>
+          <h2><%= item.name.capitalize %> - <%= item.price %> €</h2>
+          <strong><h6><%= item.description %></p></h6></strong>
             <%= form_tag orders_path do %>
             <%= hidden_field_tag 'item_id', item.id %>
-            <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <%= submit_tag 'Add to cart', class: 'btn btn-primary' %>
             <% end %>
         </div>
       </div>
     </li>
   <% end  %>
 
-
-
   <br>
   <h2>Your cart</h2>
-  <h3>-------------------------------------<h3>
-
+  <h3>----------------<h3>
 
   <h2><strong>total price: </strong></h2>
   <a href="" class="btn btn-primary">proceed to checkouts</a>

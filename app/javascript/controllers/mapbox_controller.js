@@ -107,28 +107,28 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
   }
 
-  _addImageToMap() {
-    this.map.on('load', () => {
-      this.map.addSource("myImageSource", {
-        "type": "image",
-        "url": "https://res.cloudinary.com/julienmal/image/upload/v1637866363/images_ubyywk.jpg",
-        "coordinates": [
-          [2.377325, 48.866314],
-          [2.384232, 48.86653],
-          [2.384095, 48.862848],
-          [2.373802, 48.862887],
+  // _addImageToMap() {
+  //   this.map.on('load', () => {
+  //     this.map.addSource("myImageSource", {
+  //       "type": "image",
+  //       "url": "https://res.cloudinary.com/julienmal/image/upload/v1637866363/images_ubyywk.jpg",
+  //       "coordinates": [
+  //         [2.377325, 48.866314],
+  //         [2.384232, 48.86653],
+  //         [2.384095, 48.862848],
+  //         [2.373802, 48.862887],
 
-        ]
-      });
+  //       ]
+  //     });
 
-      this.map.addLayer({
-        "id": "overlay",
-        "source": "myImageSource",
-        "type": "raster",
-        "paint": {
-          "raster-opacity": 1
-        }
-      });
-    });
-  }
+  //     this.map.addLayer({
+  //       "id": "overlay",
+  //       "source": "myImageSource",
+  //       "type": "raster",
+  //       "paint": {
+  //         "raster-opacity": 1
+  //       }
+  //     });
+  //   });
+  // }
 }
