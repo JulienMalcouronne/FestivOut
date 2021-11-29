@@ -13,8 +13,15 @@
 }
 .footer-links a {
   color: #EEEEEE;
-  opacity: 0.9;
   text-decoration: none;
   font-size: 28px;
   padding: 0px 10px;
+}
+
+.footer-link-active{
+  opacity: 1;
+}
+
+.footer-link-default{
+  opacity: 0.5;
 }
