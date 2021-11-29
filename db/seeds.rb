@@ -17,12 +17,12 @@ Artist.destroy_all
 Day.destroy_all
 Chatroom.destroy_all
 
-nameday = ["Fri December 3rd", "Sat December 4th", "Sun December 5th"]
+nameday = ["Friday 3rd", "Saturday 4th", "Sunday 5th"]
 time = ["11/01/2021 11:00"]
 address = ["16, Vla Gaudelet, 75011 Paris", "1, Vla Gaudelet, 75011 Paris", "79 Av. de la République, 75011 Paris", "72 Av. de la République, 75011 Paris", "67 Av. de la République, 75011 Paris", "12bis Vla Gaudelet, 75011 Paris", "84 Av. de la République, 75011 Paris", "106 Rue Oberkampf, 75011 Paris", "110 Rue Oberkampf, 75011 Paris" , "75 Av. de la République, 75011 Paris", "66 Av. de la République, 75011 Paris" ]
 name = ["Kentucky fried Chicken", "Secret bar", "bar num 2", "Main restaurant", "clothes and more", "goodies store", "main merchandise store", "tacos bar", "take away bar and restaurant", "Pizza Yolo", "makdo", "kcf", "BK", "Pizza Hutte", "Food trucky", "cheezi truck"]
 price = rand(5...20)
-artistName = ["Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost", "Arno Cost"]
+artistName = ["Arno Cost", "Guillaume Cabaret", "Daft Punk", "Parcels", "Fatima Yamaha", "Mac Demarco", "The Strokes", "Bicep", "Sébastien Tellier", "Air"]
 itemName = ["fries", "shoes", "goodies", "burger", "t-shirt", "bag", "shots", "red wine", "white wine", "beer", "souvenir", "hot dog", "sausage"]
 desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because a description would not describe it"]
 pointName = ["toilette 1", "toilette 2", "scene 1", "scene 2", "ATM", "exit", "entry"]
