@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+  before_action :set_friend, only: %i[confirm refuse]
   def new
     @friend = Friend.new
     authorize @friend
@@ -29,10 +30,25 @@ class FriendsController < ApplicationController
     # authorize @friend
   end
 
+  def confirm
+    @friend.update(status: "accepted")
+    redirect_to "/friends"
+  end
+
+  def refuse
+    @friend.update(status: "canceled")
+    redirect_to "/friends"
+  end
+
   private
 
   def friend_params
     params.require(:friend).permit(:username)
+  end
+
+  def set_friend
+    @friend = Friend.find(params[:id])
+    authorize @friend
   end
 
 end
