@@ -91,6 +91,14 @@
         <% end %>
       <% end %>
       <% end %>
+
+      <% if current_user && current_user.orders.any? %>
+      <% current_user.orders.each do |order| %>
+      <img src="<%= cl_image_path order.item.image.key , height: 10 %>">
+      <%= "your order #{order.item.name} will be ready in 5 minutes please proceed to Take Away area"  %>
+
+      <% end %>
+      <% end %>
     <div class="slide">
       <h4>Friends</h4>
 
