@@ -85,9 +85,10 @@
 
         <% end  %>
       <% end  %>
-    <% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
-    <% if current_user && accepted_friends.any? %>
-        <% accepted_friends.each do |friend2| %>
+      <% if current_user && current_user.friend_requests.any? %>
+        <% if current_user && current_user.friend_requests.where(status: "accepted").any? %>
+      <% end %>
+        <% current_user.friend_requests.where(status: "accepted").each do |friend2| %>
           <% if friend2.user.avatar.attached? %>
               <img class="avatar-large"
               src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt="">
