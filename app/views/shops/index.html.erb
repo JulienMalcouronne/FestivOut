@@ -1,19 +1,26 @@
 <div class="chatroom content-wrapper pt-5">
   <div class="chat">
     <h1 class="text-center">Select a shop</h1>
-    <div class="slider">
+    <div class="slider"id="shoppers">
         <% @shops.each do |shop| %>
-          <div class="slide"style="display:flex; justify-content: space-evenly;flex-direction: column;align-content: space-between;">
+          <div class="slide"style="display:flex; justify-content: flex-start;flex-direction: column;align-content: space-between;">
               <div class="card-infos">
-                <div>
-                  <h2 style=" min-height: 60px;"><%= shop.name.capitalize %></h2>
+                <div class="truck-photo">
+                  <img src="<%= cl_image_path shop.image.key %>" style="height: 222px;width:240px;margin:16px;border-radius:8px;" >
                 </div>
-                <div>
-                  <img src="<%= cl_image_path shop.image.key , height: 10 %>" style="height:200px;width:200px; padding-bottom:10px"alt="" >
-                </div>
-                <div>
-                  <%= link_to "See the menu", festival_shop_path(@festival.id, shop.id)%>
-                </div>
+                  <div>
+                    <div class="text"style=margin-left:15px;>
+                      <h3 style=" min-height: 60px;"><%= shop.name.capitalize %></h3>
+                    </div>
+                    <div class="" style=display:flex;justify-content:flex-start;color:#767987;margin-bottom:10px;margin-left:15px;>
+                      <p><i class="fas fa-map-marker-alt"></i>   Scene one</p>
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:center;">
+                    <div style="width: 233px;padding:10px;background-color: #8661C1;border-radius: 4px;font-size: 14px;display:flex;justify-content:center;">
+                      <%= link_to "See all menu", festival_shop_path(@festival.id, shop.id)%>
+                    </div>
+                  </div>
               </div>
           </div>
         <% end %>
