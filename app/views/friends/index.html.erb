@@ -33,7 +33,8 @@
       <% friends = current_user.friend_requests %>
       <% friends.each do |friend| %>
       <li><img class="avatar-large"
-      src="<%= cl_image_path friend.user.avatar.key, height: 10 %>" alt=""> <%= friend.user["username"] %>
+
+      src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png' , height: 10 %>" alt=""> <%= friend.user["username"] %>
                   <% if friend.status != "accepted" %>
                       <h2 id="master" class="btn btn-success"> <%= link_to "Confirm", confirm_friend_path(friend),
                       method: :post %>
