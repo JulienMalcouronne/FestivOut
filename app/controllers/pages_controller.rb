@@ -37,12 +37,21 @@ class PagesController < ApplicationController
       @users = User.where(id: friend_ids)
 
       @users = @users.map do |user|
+        if user.avatar.attached?
         {
           lat: user.latitude,
           lng: user.longitude,
           info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
           image_url: helpers.cloudinary_url(user.avatar.key)
         }
+      else
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
+          image_url: helpers.asset_url("guest.png")
+        }
+      end
     end
   end
 end
