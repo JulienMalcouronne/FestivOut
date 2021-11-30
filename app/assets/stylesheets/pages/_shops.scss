@@ -1,0 +1,33 @@
+#slide-shop{
+  .slide{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    height: 450px;
+    width: 296px;
+    height: 468px;
+  }
+
+}
+.button-shop{
+  width: 264px;
+  padding:10px;
+  background-color: #8661C1;
+  border-radius: 13px;
+  font-size: 14px;
+  display:flex;
+  justify-content:center;
+}
+#shoppers{
+  margin-top: 33%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rating{
+  margin-bottom: 30px;
+  display: flex;
+  .fa-star{
+    color:#8661C1
+  }
+}

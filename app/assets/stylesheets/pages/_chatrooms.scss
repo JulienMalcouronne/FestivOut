@@ -6,13 +6,15 @@
 .chat {
   flex-grow: 1;
   overflow-y: scroll;
+    a{
+      background-color: #8861C1;
+      padding: 10px;
+      border-radius: 5px;
+    }
 }
 
 .chatlink {
   a {
     color: #EEEEEE;
-    padding: 10px;
   }
-  margin-top: 50px;
-  margin-bottom: 10px;
 }
