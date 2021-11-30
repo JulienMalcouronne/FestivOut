@@ -8,20 +8,27 @@ a{
 
 .slider {
   width: 100%;
-  height: 400px;
-  display: flex;
+  height: 490px;
+  border-radius: 10px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-
+#shoppers{
+  margin-top: 30%;
+  display: flex;
+  justify-content: flex-start;
+}
 .slide {
-  width: 250px;
+  width: 270px;
   flex-shrink: 0;
-  height: auto;
-  background-color: #8661c1;
+  height: 450px;
+  background-color: #181F37;
   margin: 20px;
-  padding: 20px;
   border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-content: space-between;
   h4 {
     color: #EEEEEE
   }
@@ -29,7 +36,6 @@ a{
     font-size: 18px;
   }
 }
-
 
 
 .fake-notif p{
