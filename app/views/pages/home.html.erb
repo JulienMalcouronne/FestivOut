@@ -57,12 +57,47 @@
         <%= "#{reminder.artist.name} will play #{reminder.end_time.strftime("at %I:%M%p")}" %>
 
       <% reminder.artist.reminders.where.not(user: current_user).each do |remind| %>
+      <% if remind.user.avatar.attached? %>
       <img class="avatar-large" src="<%= cl_image_path remind.user.avatar.key, height: 10 %>" alt="">
-
+              <% else %>
+          <div style="margin-right: 5px;">
+            <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+          </div>
+      <% end %>
       <% end %>
     <% end %>
     <% end  %>
+    <h4>All friends:</h4>
+    <% if current_user && current_user.friends.any? %>
+          <% friends = current_user.friends %>
+      <% friends.each do |friend| %>
+        <% if friend.friend.avatar.attached? %>
+          <div class="friends-list">
+              <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt="">
+            <div>
+                        <% else %>
+          <div style="margin-right: 5px;">
+            <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+          </div>
+      <% end %>
+            </div>
+          </div>
 
+        <% end  %>
+      <% end  %>
+    <% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
+    <% if current_user && accepted_friends.any? %>
+        <% accepted_friends.each do |friend2| %>
+          <% if friend2.user.avatar.attached? %>
+              <img class="avatar-large"
+              src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt="">
+          <% else %>
+              <div style="margin-right: 5px;">
+              <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            </div>
+        <% end %>
+      <% end %>
+      <% end %>
     <div class="slide">
       <h4>Friends</h4>
 
