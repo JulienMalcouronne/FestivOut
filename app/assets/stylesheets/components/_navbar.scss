@@ -1,52 +1,26 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: #edab18;
-}
+.navbar {
+  padding-top: 30px;
+  background-color: #8661c1;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 100px;
+  margin-bottom: 15px;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 70px;
-}
-
-.navicons {
-  color: #EEEEEE;
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: 5px;
-  opacity: 0.9;
-}
-
-.navbar-brand {
-  margin-right: 0px;
-  padding: 0px;
+  h4{
+    max-width: 200px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+  }
 
 }
 
-.hamburger-box {
-  height: 10px;
+.notif {
+  height: 40px;
+  width: 40px;
+  background-color: #9e7fcf;
+  border-radius: 50%;
 }
 
-.hamburger-inner {
-  background-color: #EEEEEE;
-}
-
-.hamburger-inner::before {
-  background-color: #EEEEEE;
-}
-
-.hamburger-inner::after {
-  background-color: #EEEEEE;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #EEEEEE;
-  opacity: 0.9;
-  margin-left: 13px;
-}
-
-.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
-  background-color: #EEEEEE;
+i.far.fa-bell::before {
+  font-size: 24px;
 }
