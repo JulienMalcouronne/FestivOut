@@ -4,6 +4,9 @@
       <%# <% @chatroom.messages.each do |message| %>
       <% @reminders.each do |reminder| %>
       <li>
+      <img src="<%= cl_image_path reminder.artist.image.key , height: 1 %>">
+        <%= reminder.artist.name %>
+
       <%= "you lauched your reminder #{reminder.start_time.strftime("at %I:%M%p")}" %>
       <br>
       <%= "The artist you want to see start #{reminder.end_time.strftime("at %I:%M%p")}"%>

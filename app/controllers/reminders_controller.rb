@@ -6,7 +6,13 @@ class RemindersController < ApplicationController
     @reminders = policy_scope(@user.reminders)
 
     @reminder = Reminder.new
-    # authorize @user
+    # @artist = Artist.find(params[:artist_id])
+    # @day = Day.find(params[:day_id])
+    # @festival = Festival.find(params[:festival_id])
+    # # authorize @user
+    # authorize @day
+    # authorize @festival
+    # authorize @artist
 
   end
 

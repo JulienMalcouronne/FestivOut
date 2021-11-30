@@ -1,0 +1,26 @@
+<% if current_user && current_user.notifications.any? %>
+  <% current_user.notifications.each do |notification| %>
+  <li>
+  <%= notification.content %>
+    <% if current_user.friend_requests.any? %>
+
+      <% notification.user.friend_requests.each do |request| %>
+      <img class="avatar-large"
+      src="<%= cl_image_path request.user.avatar.attached? ? request.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png' , height: 10 %>" alt=""> <%= request.user["username"] %>
+
+                    <% if request.status != "accepted" %>
+                      <h2 id="master" class="btn btn-success"> <%= link_to "Confirm", confirm_friend_path(request),
+                      method: :post %>
+                      </h2>
+                    <% end %>
+                    <% if request.status != "canceled" %>
+                      <h2 id="masterr" class="btn btn-danger"> <%= link_to "Decline", refuse_friend_path(request),
+                      method: :post %>
+                      </h2>
+                    <% end %>
+                    </li>
+      <% end %>
+
+    <% end %>
+  <% end %>
+<% end %>
