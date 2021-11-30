@@ -1,1 +1,6 @@
 <h4 class="p-2 mb-0" style="color: #8661C1"><%= point_of_interest.name.capitalize %></h4>
+<% if point_of_interest.artists.any? %>
+  <% point_of_interest.artists.each do |artist| %>
+  <%= artist.name %>
+  <% end %>
+<% end %>
