@@ -1,4 +1,6 @@
-<% friendship = @friends.length + current_user.friend_requests.length %>
+
+<% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
+<% friendship = @friends.length + accepted_friends.length %>
 <h1 class="text-center"style="margin-top: 6vh !important;">Hello <span><%= @user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
 <br>
 <div class="friends-form">
