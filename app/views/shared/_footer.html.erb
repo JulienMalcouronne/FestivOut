@@ -8,15 +8,15 @@
   >
 
     <a href="/" class='<%= controller_name == 'pages' && action_name == 'home'?'footer-link-active': 'footer-link-default'%>'>
-    <i class="fas fa-home" ></i></a>
+    <i class="fas fa-home" ></i><p>Home</p></a>
     <a href="/festivals/1/chatrooms" class ='<%= controller_name == 'chatrooms' && action_name == 'index'|| controller_name == 'chatrooms' && action_name == 'show'?'footer-link-active': 'footer-link-default'%>'>
-    <i class="fas fa-comment"></i></a>
+    <i class="fas fa-comment"></i><p>Chat</p></a>
     <a href="/map"class='<%= controller_name == 'pages' && action_name == 'map'?'footer-link-active': 'footer-link-default'%>' >
-    <i class="fas fa-map-marker-alt"></i></a>
+    <i class="fas fa-map-marker-alt"></i><p>Map</p></a>
     <a href="/festivals/1/shops"class='<%= controller_name == 'shops' && action_name == 'index'||controller_name == 'shops' && action_name == 'show'?'footer-link-active': 'footer-link-default'%>'>
-    <i class="fas fa-shopping-cart"></i></a>
+    <i class="fas fa-shopping-cart"></i><p>Shop</p></a>
     <%# <a href="#"><i class="fas fa-user-friends"></i></a> %>
     <%# <a href="#"><i class="fas fa-calendar-alt"></i></a> %>
     <a href="#"class='<%= controller_name == 'pages' && action_name == 'first-aid'?'footer-link-active': 'footer-link-default'%>'>
-    <i class="fas fa-first-aid"></i></a>
+    <i class="fas fa-first-aid"></i><p>S.O.S</p></a>
   </div>
