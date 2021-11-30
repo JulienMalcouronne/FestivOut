@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_155901) do
+ActiveRecord::Schema.define(version: 2021_11_30_170236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,9 @@ ActiveRecord::Schema.define(version: 2021_11_30_155901) do
     t.bigint "day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "point_of_interest_id"
     t.index ["day_id"], name: "index_artists_on_day_id"
+    t.index ["point_of_interest_id"], name: "index_artists_on_point_of_interest_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -187,6 +189,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_155901) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artists", "days"
+  add_foreign_key "artists", "point_of_interests"
   add_foreign_key "chatrooms", "festivals"
   add_foreign_key "days", "festivals"
   add_foreign_key "friends", "users"
