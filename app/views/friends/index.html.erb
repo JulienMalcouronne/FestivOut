@@ -22,7 +22,7 @@
           <div class="friends-list">
               <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt=""> <%= friend.friend["username"] %>
             <div>
-              <i class="fas fa-location-arrow"></i>
+              <a href="/map"> <i class="fas fa-location-arrow"></i></a>
             </div>
           </div>
         </li>
@@ -32,6 +32,7 @@
     <p>Here are your pending requests</p>
       <% friends = current_user.friend_requests %>
       <% friends.each do |friend| %>
+
       <li><img class="avatar-large"
 
       src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png' , height: 10 %>" alt=""> <%= friend.user["username"] %>
@@ -45,7 +46,8 @@
                       method: :post %>
                       </h2>
                     <% end %>
-      <i class="fas fa-location-arrow"></i></li>
+     <a href="/map"> <i class="fas fa-location-arrow"></i></a>
+      </li>
       <% end  %>
     <% end  %>
 </div>

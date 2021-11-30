@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/friends", to: "friends#index"
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   get "/map", to: "pages#map"
+  get "/notification", to: "pages#notification"
+  resources :reminders, only: [:index]
   resources :friends, only: [:new, :create, :index] do
     member do
       post :confirm
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   resources :festivals do
     resources :days, only: [:new, :create, :show, :index] do
       resources :artists, only: [:new, :create] do
-        resources :reminders, only: [:index, :create, :new]
+        resources :reminders, only: [:create, :new]
       end
     end
     resources :point_of_interests, only: [:index, :show]

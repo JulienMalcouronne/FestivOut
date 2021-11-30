@@ -10,6 +10,12 @@ class PagesController < ApplicationController
     @friend = Friend.new
   end
 
+  # def notification
+  #   @user = current_user
+  #   @friends = @user.friends
+  #   @friend = Friend.new
+  # end
+
   def map
        @shops = policy_scope(Shop)
       @markers = @shops.geocoded.map do |shop|
@@ -37,21 +43,21 @@ class PagesController < ApplicationController
       @users = User.where(id: friend_ids)
 
       @users = @users.map do |user|
-        if user.avatar.attached?
-        {
-          lat: user.latitude,
-          lng: user.longitude,
-          info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
-          image_url: helpers.cloudinary_url(user.avatar.key)
-        }
-      else
-        {
-          lat: user.latitude,
-          lng: user.longitude,
-          info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
-          image_url: helpers.asset_url("guest.png")
-        }
-      end
+          if user.avatar.attached?
+          {
+            lat: user.latitude,
+            lng: user.longitude,
+            info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
+            image_url: helpers.cloudinary_url(user.avatar.key)
+          }
+          else
+          {
+            lat: user.latitude,
+            lng: user.longitude,
+            info_window: render_to_string(partial: "pages/info_window", locals: { user: user }),
+            image_url: helpers.asset_url("guest.png")
+          }
+          end
     end
   end
 end
