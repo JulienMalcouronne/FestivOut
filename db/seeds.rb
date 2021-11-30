@@ -13,9 +13,11 @@ Item.destroy_all
 Shop.destroy_all
 PointOfInterest.destroy_all
 Message.destroy_all
+Reminder.destroy_all
 Artist.destroy_all
 Day.destroy_all
 Chatroom.destroy_all
+
 
 nameday = ["Friday 3rd", "Saturday 4th", "Sunday 5th"]
 time = ["11/01/2021 11:00"]
