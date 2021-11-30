@@ -11,11 +11,13 @@ Rails.application.routes.draw do
       post :refuse
     end
   end
-  resources :reminders, only: [:index, :create, :new]
+  # resources :reminders, only: [:index, :create, :new]
   resources :localize_users, only: [:update]
   resources :festivals do
     resources :days, only: [:new, :create, :show, :index] do
-      resources :artists, only: [:new, :create]
+      resources :artists, only: [:new, :create] do
+        resources :reminders, only: [:index, :create, :new]
+      end
     end
     resources :point_of_interests, only: [:index, :show]
     resources :chatrooms, only: [:show, :index] do

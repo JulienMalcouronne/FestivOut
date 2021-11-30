@@ -23,9 +23,8 @@
                 <div class="card-product-infos">
                   <h2><%= artist.name %></h2>
                   <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                  <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
-
-
+                  <%# <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
+                  <%= link_to "Add a reminder", festival_day_artist_reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: @day), method: :post %>
                 </div>
 
               </div>
@@ -44,7 +43,8 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
+                <%# <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist), method: :post %>
+                <%= link_to "Add a reminder", festival_day_artist_reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist), method: :post %>
               </div>
             </div>
           </li>
@@ -61,7 +61,8 @@
               <div class="card-product-infos">
                 <h2><%= artist.name %></h2>
                 <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
-                <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
+                <%# <%= link_to "Add a reminder", reminders_path(end_time: artist.start_time.strftime("at %I:%M%p")), method: :post %>
+                <%= link_to "Add a reminder", festival_day_artist_reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist), method: :post %>
               </div>
             </div>
           </li>
