@@ -10,7 +10,7 @@
             <strong><h6><%= item.description %></p></h6></strong>
               <%= form_tag orders_path do %>
               <%= hidden_field_tag 'item_id', item.id %>
-              <%= submit_tag 'Add to cart', class: 'btn btn-primary' %>
+              <%= submit_tag 'Add to cart', class: 'btn' %>
               <% end %>
           </div>
         </div>
