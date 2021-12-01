@@ -79,9 +79,7 @@
 
   <ul class="container-fluid friend-list">
     <% if current_user && @user_friends.any? %>
-      <% if current_user && current_user.friend_requests.where(status: "accepted").any? %>
-      <% end  %>
-        <% current_user.friend_requests.where(status: "accepted").each do |friend2| %>
+        <% @user_friends.each do |friend2| %>
         <% if friend2.user.avatar.attached? %>
             <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
         <% else %>
