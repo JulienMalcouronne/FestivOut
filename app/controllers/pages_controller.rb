@@ -41,7 +41,7 @@ class PagesController < ApplicationController
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        image_url: helpers.asset_url("toilettes.png")
+        image_url: helpers.asset_url("toilette.png")
         }
 
           elsif point_of_interest.name == "exit" || point_of_interest.name == "exit 2"
