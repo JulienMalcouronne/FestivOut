@@ -1,13 +1,13 @@
 .input{
   display: flex;
   justify-content: center;
-  margin: 13px;
+  margin-bottom: 50px;
   border: #8661C1;
 
 }
 
 span{
-  color: #8661C1;
+  color: #EEEEEE;
 }
 .friends{
 
@@ -40,4 +40,8 @@ span{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #181F37;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 8px;
 }

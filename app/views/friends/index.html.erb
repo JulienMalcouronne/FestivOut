@@ -1,53 +1,66 @@
 
-<% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
-<% friendship = @friends.length + accepted_friends.length %>
-<h1 class="text-center"style="margin-top: 6vh !important;">Hello <span><%= current_user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
-<br>
-<div class="friends-form">
-  <div>
-    <h2 class="text-center mt-2" >Add a friend with its username ! </h2>
-      <div class="input">
-        <%=simple_form_for @friend do |f|  %>
-          <%= f.text_field :username, value: "" %>
-          <%= f.submit value:"Add"%>
-        <% end %>
-      </div>
+  <% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
+  <% friendship = @friends.length + accepted_friends.length %>
+  <h1 class="text-center"style="margin-top: 3vh !important;background-color:#8661C1;margin-left:10px;margin-right:10px;padding:10px;border-radius:12px;">Hello <span><%= current_user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
+  <br>
+  <div class="friends-form">
+    <div>
+      <h2 class="text-center mt-2" >Add a friend with its username ! </h2>
+        <div class="input">
+          <%=simple_form_for @friend do |f|  %>
+            <%= f.text_field :username, value: "" %>
+            <%= f.submit value:"Add"%>
+          <% end %>
+        </div>
+    </div>
   </div>
-</div>
-<div class="friends">
-    <% if current_user.friends.any? %>
-      <% friends = current_user.friends %>
-      <% friends.each do |friend| %>
-        <li>
-          <div class="friends-list">
-              <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt=""> <%= friend.friend["username"] %>
-            <div>
-              <a href="/map"> <i class="fas fa-location-arrow"></i></a>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="myfriends-tab" data-bs-toggle="tab" data-bs-target="#myfriends" type="button" role="tab" aria-controls="myfriends" aria-selected="true">My Friends</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button" role="tab" aria-controls="pending" aria-selected="true">Friends requests</button>
+    </li>
+  </ul>
+  <br>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="myfriends" role="tabpanel" aria-labelledby="myfriends-tab">
+      <% if current_user.friends.any? %>
+        <% friends = current_user.friends %>
+        <% friends.each do |friend| %>
+          <li style="list-style-type:none;">
+            <div class="friends-list">
+                <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt=""> <%= friend.friend["username"] %>
+              <div>
+                <a href="/map"> <i class="fas fa-location-arrow"></i></a>
+              </div>
             </div>
-          </div>
+          </li>
+          <% end  %>
+        <% end  %>
+    </div>
+    <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+      <% if current_user.friend_requests.any? %>
+
+        <% friends = current_user.friend_requests %>
+        <% friends.each do |friend| %>
+
+        <li style="list-style-type:none;display: flex; justify-content: space-around; align-items: center; background-color: #181F37;margin: 10px;border-radius: 8px;padding: 8px;">
+        <img class="avatar-large"
+        src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png' , height: 10 %>" alt=""> <%= friend.user["username"] %>
+                    <% if friend.status != "accepted" %>
+                        <h2 id="master" class="btn" style="background-color:#8661C1;padding:7px;border-radius:8px;margin-top:5px;"> <%= link_to "Confirm", confirm_friend_path(friend),
+                        method: :post %>
+                        </h2>
+                      <% end %>
+                      <% if friend.status != "canceled" %>
+                        <h2 id="masterr" class="btn"style="background-color:#A1674A;padding:7px;border-radius:8px;margin-top:5px;"> <%= link_to "Decline", refuse_friend_path(friend),
+                        method: :post %>
+                        </h2>
+                      <% end %>
+      <a href="/map"> <i class="fas fa-location-arrow"></i></a>
         </li>
         <% end  %>
       <% end  %>
-    <% if current_user.friend_requests.any? %>
-    <p>Here are your pending requests</p>
-      <% friends = current_user.friend_requests %>
-      <% friends.each do |friend| %>
-
-      <li><img class="avatar-large"
-
-      src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png' , height: 10 %>" alt=""> <%= friend.user["username"] %>
-                  <% if friend.status != "accepted" %>
-                      <h2 id="master" class="btn btn-success"> <%= link_to "Confirm", confirm_friend_path(friend),
-                      method: :post %>
-                      </h2>
-                    <% end %>
-                    <% if friend.status != "canceled" %>
-                      <h2 id="masterr" class="btn btn-danger"> <%= link_to "Decline", refuse_friend_path(friend),
-                      method: :post %>
-                      </h2>
-                    <% end %>
-     <a href="/map"> <i class="fas fa-location-arrow"></i></a>
-      </li>
-      <% end  %>
-    <% end  %>
-</div>
+    </div>
+  </div>
