@@ -1,9 +1,13 @@
 <h4 class="p-2 mb-0" style="color: #8661C1"><%= point_of_interest.name.capitalize %></h4>
 <% if point_of_interest.artists.any? %>
-  <% point_of_interest.artists.each do |artist| %>
-  <%= link_to "Add a reminder for #{artist.name}", festival_day_artist_reminders_path(festival_id: artist.day.festival.id, end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: artist.day.id), method: :post %>
-  <img src="<%= cl_image_path artist.image.key , height: 10 %>">
+  <% point_of_interest.artists.first(3).each do |artist| %>
+
+  <img src="<%= cl_image_path artist.image.key , height: 1 %>" class="avatar">
+  <p style="color: black">
   <%= artist.name %>
   <%= artist.start_time.strftime("at %I:%M%p") %>
+  <p>
+  <%= link_to "Add a reminder", festival_day_artist_reminders_path(festival_id: artist.day.festival.id, end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: artist.day.id), method: :post %>
+  <br>
   <% end %>
 <% end %>
