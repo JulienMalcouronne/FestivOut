@@ -1,0 +1,14 @@
+
+<% if current_user && current_user.orders.any? %>
+<h4>Please find below all your previous orders</h4>
+  <% current_user.orders.each do |order| %>
+    <li>
+    <%= order.item.name %>
+    <%= "from #{order.item.shop.name}" %>
+    <%= "total price: #{order.item.price}€" %>
+    </li>
+  <% end %>
+
+  <% else %>
+  <h4>You don't have purchase anything yet</h4>
+<% end %>
