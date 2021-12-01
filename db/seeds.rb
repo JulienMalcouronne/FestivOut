@@ -34,25 +34,112 @@ picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg
 picForFoodsAndDrinks = ["fries1.jpeg", "fries2.jpeg", "pizza1.jpeg", "pizza2.jpeg", "pizza3.jpeg", "burger1.jpeg", "burger2.jpeg", "burger3.jpeg", "beer.jpeg", "beer2.jpeg", "water.jpeg", "white_wine.jpeg", "red_wine.jpeg", "coca.jpeg"]
 picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg", "artist5.jpeg"]
 
-5.times do |index|
+
+shops = [
+  {
+    name: "FastFood",
+    photo: "truck.jpeg",
+    address: "16, Vla Gaudelet, 75011 Paris",
+    items: [
+      {
+        photo: "fries1.jpeg",
+        name: "fries",
+        price: rand(5..20),
+      },
+      {
+        photo: "burger1.jpeg",
+        name: "burger",
+        price: rand(5..20),
+      },
+      {
+        photo: "pizza1.jpeg",
+        name: "pizza",
+        price: rand(5..20),
+      },
+      {
+        photo: "pizza2.jpeg",
+        name: "pizza",
+        price: rand(5..20),
+      },
+      {
+        photo: "water.jpeg",
+        name: "water",
+        price: rand(5..20),
+      },
+    ]
+  },
+  {
+    name: "Drinks",
+    photo: "truck1.jpeg",
+    address: "14, Vla Gaudelet, 75011 Paris",
+    items: [
+      {
+        photo: "beer.jpeg",
+        name: "beer",
+        price: rand(5..20),
+      },
+      {
+        photo: "beer2.jpeg",
+        name: "beer",
+        price: rand(5..20),
+      },
+      {
+        photo: "white_wine.jpeg",
+        name: "white wine",
+        price: rand(5..20),
+      },
+      {
+        photo: "red_wine.jpeg",
+        name: "red wine",
+        price: rand(5..20),
+      },
+      {
+        photo: "water.jpeg",
+        name: "water",
+        price: rand(5..20),
+      },
+    ]
+  }
+]
+
+shops.each do |shop_data|
   shop = Shop.create!(
-    name: name.sample,
-    address: address.sample,
+    name: shop_data[:name],
+    address: shop_data[:name],
     festival_id: Festival.all.first.id
   )
-  shop.image.attach(io: File.open("app/assets/images/#{picForRestaurant[index]}"), filename: "#{picForRestaurant[index]}")
-    5.times do |index|
-      item = Item.create!(
-        name: itemName.sample,
-        description: desc.sample,
-        price: rand(5..20),
-        shop_id: shop.id
-      )
-      item.image.attach(io: File.open("app/assets/images/#{picForFoodsAndDrinks[index]}"), filename: "#{picForFoodsAndDrinks[index]}")
-      item.save!
-    end
-      shop.save!
-    end
+  shop.image.attach(io: File.open("app/assets/images/#{shop_data[:photo]}"), filename: "#{shop_data[:photo]}")
+  shop.save!
+
+  shop_data[:items].each do |item_data|
+    item = Item.create!(
+      name: item_data[:name],
+      shop: shop,
+      price: item_data[:price]
+    )
+    item.image.attach(io: File.open("app/assets/images/#{item_data[:photo]}"), filename: "#{item_data[:photo]}")
+  end
+end
+
+# 5.times do |index|
+#   shop = Shop.create!(
+#     name: name.sample,
+#     address: address.sample,
+#     festival_id: Festival.all.first.id
+#   )
+#   shop.image.attach(io: File.open("app/assets/images/#{picForRestaurant[index]}"), filename: "#{picForRestaurant[index]}")
+#     5.times do |index|
+#       item = Item.create!(
+#         name: itemName.sample,
+#         description: desc.sample,
+#         price: rand(5..20),
+#         shop_id: shop.id
+#       )
+#       item.image.attach(io: File.open("app/assets/images/#{picForFoodsAndDrinks[index]}"), filename: "#{picForFoodsAndDrinks[index]}")
+#       item.save!
+#     end
+#       shop.save!
+#     end
 # end
 
 nameday.each do |name|
