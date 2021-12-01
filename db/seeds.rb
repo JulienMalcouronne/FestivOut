@@ -20,7 +20,7 @@ Chatroom.destroy_all
 
 
 nameday = ["Friday 3rd", "Saturday 4th", "Sunday 5th"]
-time = ["11/01/2021 11:00"]
+time = ["03/12/2021 18:00", "03/12/2021 19:00","03/12/2021 20:00", "03/12/2021 21:00", "03/12/2021 22:00"]
 address = ["16, Vla Gaudelet, 75011 Paris", "1, Vla Gaudelet, 75011 Paris", "79 Av. de la République, 75011 Paris", "72 Av. de la République, 75011 Paris", "67 Av. de la République, 75011 Paris", "12bis Vla Gaudelet, 75011 Paris", "84 Av. de la République, 75011 Paris", "106 Rue Oberkampf, 75011 Paris", "110 Rue Oberkampf, 75011 Paris" , "75 Av. de la République, 75011 Paris", "66 Av. de la République, 75011 Paris" ]
 name = ["Kentucky fried Chicken", "Secret bar", "bar num 2", "Main restaurant", "clothes and more", "goodies store", "main merchandise store", "tacos bar", "take away bar and restaurant", "Pizza Yolo", "makdo", "kcf", "BK", "Pizza Hutte", "Food trucky", "cheezi truck"]
 price = rand(5...20)
@@ -142,7 +142,7 @@ nameday.each do |name|
   days.each do |day|
 
     5.times do |index|
-      start = DateTime.parse(time.sample)
+      start = DateTime.parse(time[index])
       artist = Artist.create!(
         name: artistName.sample,
         start_time: start,
