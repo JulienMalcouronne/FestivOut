@@ -44,7 +44,7 @@ a{
 
 .slider-planning {
   width: 100%;
-  height: 400px;
+  height: 310px;
   border-radius: 10px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -55,7 +55,7 @@ a{
   padding: 10px;
   width: 270px;
   flex-shrink: 0;
-  height: 350px;
+  height: 300px;
   background-color: #181F37;
   margin-left: 20px;
   margin-right: 20px;
@@ -67,8 +67,10 @@ a{
   h3 {
     font-size: 20px;
     color: #EEEEEE;
-    padding: 5px 10px;
-    margin-bottom: 0px;
+    margin: 15px 10px;
+    font-weight: bold;
+    max-height: 25px;
+    overflow: hidden;
   }
   p {
     font-size: 14px;
@@ -81,15 +83,49 @@ a{
   }
 }
 
+
+.vignette-date {
+  background-color: #EEEEEE;
+  height: 40px;
+  width: 40px;
+  opacity: 0.8;
+  margin: 10px;
+  border-radius: 5px;
+  p {
+    color: #8B1640;
+    padding-left: 0px;
+  }
+}
+
+.vignette-remind i {
+  margin: 10px 10px;
+  color: #8B1640;
+  background-color: #EEEEEE;
+  opacity: 0.8;
+  padding: 8px;
+  border-radius: 5px;
+
+}
+
 .avatar-list {
-  ul {
+  padding-left: 10px;
+  margin-bottom: 0px;
+  li{
     list-style: none;
+    display: inline;
+    margin-right: -10px;
   }
-  li {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+}
+
+.attendees {
+  margin-bottom: 15px;
+  p {
+    margin-left: 10px;
+    font-weight: lighter;
   }
+}
+
+.reminder-rdv {
+  padding-left: 10px;
+  color: #bebebe;
 }
