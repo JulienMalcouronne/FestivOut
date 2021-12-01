@@ -1,6 +1,5 @@
 <div class="popup">
-
-  <h3><%= user.username %></h3>
+  <h4 class="p-2 mb-0" style="color: #8661C1"><%= user.username.capitalize %></h4>
       <% if user.avatar.attached? %>
       <div style="margin-right: 5px;">
         <img src="<%= cl_image_path user.avatar.key , height: 10 %>" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
