@@ -4,5 +4,6 @@
   <img src="<%= cl_image_path artist.image.key , height: 10 %>">
   <%= artist.name %>
   <%= artist.start_time.strftime("at %I:%M%p") %>
+  <%= link_to "Add a reminder for #{artist.name}", festival_day_artist_reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: artist.day.id), method: :post %>
   <% end %>
 <% end %>
