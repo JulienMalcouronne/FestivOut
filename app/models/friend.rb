@@ -4,6 +4,8 @@ class Friend < ApplicationRecord
   after_update :build_notification
   after_create :add_notification
 
+  scope :accepted_friends, -> {where(status: "accepted")}
+
   private
 
   def build_notification

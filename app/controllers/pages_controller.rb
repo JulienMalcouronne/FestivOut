@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @user_friends = (current_user.friends.where(status: "accepted") + current_user.friend_requests.where(status: "accepted")).uniq if current_user
   end
 
   def friends
@@ -28,12 +29,50 @@ class PagesController < ApplicationController
     end
       @point_of_interests = policy_scope(PointOfInterest)
         @interests = @point_of_interests.geocoded.map do |point_of_interest|
+          if point_of_interest.name == "scene 1" || point_of_interest.name == "scene 2"
       {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
         image_url: helpers.asset_url("star.png")
       }
+          elsif point_of_interest.name == "toilette 1" || point_of_interest.name == "toilette 2"
+          {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        image_url: helpers.asset_url("toilettes.png")
+        }
+
+          elsif point_of_interest.name == "exit" || point_of_interest.name == "exit 2"
+           {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        image_url: helpers.asset_url("star.png")
+        }
+          elsif point_of_interest.name == "camping 1" || point_of_interest.name == "camping 2"
+          {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        image_url: helpers.asset_url("star.png")
+        }
+          elsif point_of_interest.name == "ATM"
+          {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        image_url: helpers.asset_url("star.png")
+        }
+          elsif point_of_interest.name == "entry"
+        {
+        lat: point_of_interest.latitude,
+        lng: point_of_interest.longitude,
+        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        image_url: helpers.asset_url("star.png")
+        }
+          end
     end
 
       friend_ids = Friend.where("user_id = ? OR friend_id = ?", current_user.id, current_user.id).pluck(:user_id, :friend_id)

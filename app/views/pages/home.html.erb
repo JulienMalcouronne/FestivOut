@@ -71,14 +71,14 @@
   <div class="container-fluid">
     <div class="planning-home d-flex justify-content-between mt-5">
       <% if current_user %>
-      <h5>My friends (<%= current_user.friend_requests.where(status: "accepted").length %>)</h5>
-      <a href="/friends"><p>See all <i class="fas fa-chevron-right"></i></p></a>
+        <h5>My friends (<%= @user_friends.length %>)</h5>
+        <a href="/friends"><p>See all <i class="fas fa-chevron-right"></i></p></a>
       <% end %>
     </div>
   </div>
 
   <ul class="container-fluid friend-list">
-    <% if current_user && current_user.friend_requests.any? %>
+    <% if current_user && @user_friends.any? %>
       <% if current_user && current_user.friend_requests.where(status: "accepted").any? %>
       <% end  %>
         <% current_user.friend_requests.where(status: "accepted").each do |friend2| %>
