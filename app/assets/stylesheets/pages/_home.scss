@@ -129,3 +129,11 @@ a{
   padding-left: 10px;
   color: #bebebe;
 }
+
+.friend-list {
+  li {
+    list-style: none;
+    display: inline;
+    margin-right: 10px;
+  }
+}

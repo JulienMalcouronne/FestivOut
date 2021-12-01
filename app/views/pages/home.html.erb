@@ -69,50 +69,28 @@
   </div>
 
   <div class="container-fluid">
-    <div class="planning-home d-flex justify-content-between">
-      <h5>My friends</h5>
+    <div class="planning-home d-flex justify-content-between mt-5">
+      <% if current_user %>
+      <h5>My friends (<%= current_user.friend_requests.where(status: "accepted").length %>)</h5>
       <a href="/friends"><p>See all <i class="fas fa-chevron-right"></i></p></a>
+      <% end %>
     </div>
   </div>
 
-  <div class="friend-list"></div>
-    <% if current_user && current_user.friends.any? %>
-      <% friends = current_user.friends %>
-      <% friends.each do |friend| %>
-        <% if friend.friend.avatar.attached? %>
-          <div class="friends-list">
-            <img class="avatar-large" src="<%= cl_image_path friend.friend.avatar.key, height: 10 %>" alt="">
-          <div>
-        <% else %>
-          <div style="margin-right: 5px;">
-            <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
-          </div>
-        <% end %>
-      <% end  %>
-    <% end  %>
-
+  <ul class="container-fluid friend-list">
     <% if current_user && current_user.friend_requests.any? %>
       <% if current_user && current_user.friend_requests.where(status: "accepted").any? %>
       <% end  %>
         <% current_user.friend_requests.where(status: "accepted").each do |friend2| %>
         <% if friend2.user.avatar.attached? %>
-            <img class="avatar-large"
-            src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt="">
+            <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
         <% else %>
           <div style="margin-right: 5px;">
-            <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            <li><img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false></li>
           </div>
         <% end %>
       <% end %>
     <% end %>
-
-    <% if current_user && current_user.orders.any? %>
-      <% current_user.orders.each do |order| %>
-        <img src="<%= cl_image_path order.item.image.key , height: 10 %>">
-        <%= "your order #{order.item.name} will be ready in 5 minutes please proceed to Take Away area"  %>
-      <% end %>
-    <% end %>
-  </div>
-
+  </ul>
 
 </div>
