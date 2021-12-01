@@ -1,6 +1,8 @@
 <h4 class="p-2 mb-0" style="color: #8661C1"><%= point_of_interest.name.capitalize %></h4>
 <% if point_of_interest.artists.any? %>
   <% point_of_interest.artists.each do |artist| %>
+  <img src="<%= cl_image_path artist.image.key , height: 10 %>">
   <%= artist.name %>
+  <%= artist.start_time.strftime("at %I:%M%p") %>
   <% end %>
 <% end %>
