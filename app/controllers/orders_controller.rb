@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+
+  def index
+    @user = current_user
+    @orders = policy_scope(@user.orders)
+    @order = Order.new
+  end
   def create
   item = Item.find(params[:item_id])
   order  = Order.create!(item: item, item_sku: item.name, amount: item.price, state: 'pending', user: current_user)
