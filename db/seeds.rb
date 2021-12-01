@@ -27,7 +27,7 @@ price = rand(5...20)
 artistName = ["Arno Cost", "Guillaume Cabaret", "Daft Punk", "Parcels", "Fatima Yamaha", "Mac Demarco", "The Strokes", "Bicep", "Sébastien Tellier", "Air"]
 itemName = ["fries", "shoes", "goodies", "burger", "t-shirt", "bag", "shots", "red wine", "white wine", "beer", "souvenir", "hot dog", "sausage"]
 desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because a description would not describe it"]
-pointName = ["toilette 1", "toilette 2", "scene 1", "scene 2", "ATM", "exit", "entry"]
+pointName = ["toilette 1", "toilette 2", "scene 1", "scene 2", "ATM", "exit", "entry", "camping 1", "exit 2", "camping 2"]
 pointDesc = ["Main", "Second"]
 pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Paris", "1 Vla Gaudelet, 75011 Paris", "7 Vla Gaudelet, 75011 Paris", "115 Rue Oberkampf, 75011 Paris","120 Rue Oberkampf, 75011 Paris", "15 Av. Jean Aicard, 75011 Paris", "19 Av. Jean Aicard, 75011 Paris", "71 Rue Servan, 75011 Paris", "69 Rue Servan, 75011 Paris", "3 Rue Saint-Hubert, 75011 Paris", "9 Rue Saint-Hubert, 75011 Paris", "78 Rue Saint-Maur, 75011 Paris", "96 Rue Saint-Maur, 75011 Paris", "68 Av. de la République, 75011 Paris", "78 Av. de la République, 75011 Paris", "53 Av. de la République, 75011 Paris", "58 Av. de la République, 75011 Paris"]
 picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg", "souvenir.jpeg"]
@@ -39,7 +39,7 @@ shops = [
   {
     name: "FastFood",
     photo: "truck.jpeg",
-    address: "16, Vla Gaudelet, 75011 Paris",
+    address: "16, Villa Gaudelet, 75011 Paris",
     items: [
       {
         photo: "fries1.jpeg",
@@ -71,7 +71,7 @@ shops = [
   {
     name: "Drinks",
     photo: "truck1.jpeg",
-    address: "14, Vla Gaudelet, 75011 Paris",
+    address: "rue Saint-Maur, 75011 Paris",
     items: [
       {
         photo: "beer.jpeg",
@@ -105,7 +105,7 @@ shops = [
 shops.each do |shop_data|
   shop = Shop.create!(
     name: shop_data[:name],
-    address: shop_data[:name],
+    address: shop_data[:address],
     festival_id: Festival.all.first.id
   )
   shop.image.attach(io: File.open("app/assets/images/#{shop_data[:photo]}"), filename: "#{shop_data[:photo]}")
@@ -122,9 +122,9 @@ shops.each do |shop_data|
 end
 puts "shops created"
 
- 10.times do
+ pointName.each do |point|
     point = PointOfInterest.create!(
-    name: pointName.sample,
+    name: point,
     description: pointDesc.sample ,
     address: pointAddress.sample,
     festival_id: Festival.all.first.id
@@ -148,7 +148,7 @@ nameday.each do |name|
         start_time: start,
         finish_time: start + (1/24.0),
         day_id: day.id,
-        point_of_interest_id: PointOfInterest.all.sample.id
+        point_of_interest_id: PointOfInterest.where("name = ? OR name = ?", "scene 1", "scene 2").sample.id
       )
         artist.image.attach(io: File.open("app/assets/images/#{picForArtists[index]}"), filename: "#{picForArtists[index]}")
         day.save!
