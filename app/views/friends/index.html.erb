@@ -1,4 +1,4 @@
-
+<div class="container-fluid chatroom">
   <% accepted_friends = current_user.friend_requests.where(status: "accepted") %>
   <% friendship = @friends.length + accepted_friends.length %>
   <h1 class="text-center"style="margin-top: 3vh !important;background-color:#8661C1;margin-left:10px;margin-right:10px;padding:10px;border-radius:12px;">Hello <span><%= current_user.first_name.capitalize %></span>, you have <%=pluralize friendship, "friend" %> </h1>
@@ -81,4 +81,4 @@
         <% end  %>
       <% end  %>
     </div>
-  </div>
+</div>
