@@ -11,10 +11,10 @@ puts "begin seeding"
 Order.destroy_all
 Item.destroy_all
 Shop.destroy_all
-PointOfInterest.destroy_all
-Message.destroy_all
 Reminder.destroy_all
 Artist.destroy_all
+PointOfInterest.destroy_all
+Message.destroy_all
 Day.destroy_all
 Chatroom.destroy_all
 
@@ -120,27 +120,17 @@ shops.each do |shop_data|
     item.image.attach(io: File.open("app/assets/images/#{item_data[:photo]}"), filename: "#{item_data[:photo]}")
   end
 end
+puts "shops created"
 
-# 5.times do |index|
-#   shop = Shop.create!(
-#     name: name.sample,
-#     address: address.sample,
-#     festival_id: Festival.all.first.id
-#   )
-#   shop.image.attach(io: File.open("app/assets/images/#{picForRestaurant[index]}"), filename: "#{picForRestaurant[index]}")
-#     5.times do |index|
-#       item = Item.create!(
-#         name: itemName.sample,
-#         description: desc.sample,
-#         price: rand(5..20),
-#         shop_id: shop.id
-#       )
-#       item.image.attach(io: File.open("app/assets/images/#{picForFoodsAndDrinks[index]}"), filename: "#{picForFoodsAndDrinks[index]}")
-#       item.save!
-#     end
-#       shop.save!
-#     end
-# end
+ 10.times do
+    point = PointOfInterest.create!(
+    name: pointName.sample,
+    description: pointDesc.sample ,
+    address: pointAddress.sample,
+    festival_id: Festival.all.first.id
+  )
+   point.save!
+end
 
 nameday.each do |name|
   days = []
@@ -150,31 +140,25 @@ nameday.each do |name|
   )
   days << day
   days.each do |day|
+
     5.times do |index|
       start = DateTime.parse(time.sample)
       artist = Artist.create!(
         name: artistName.sample,
         start_time: start,
         finish_time: start + (1/24.0),
-        day_id: day.id
+        day_id: day.id,
+        point_of_interest_id: PointOfInterest.all.sample.id
       )
         artist.image.attach(io: File.open("app/assets/images/#{picForArtists[index]}"), filename: "#{picForArtists[index]}")
         day.save!
         artist.save!
+
     end
   end
 end
 
-10.times do
-  point = PointOfInterest.create!(
-    name: pointName.sample,
-    description: pointDesc.sample ,
-    address: pointAddress.sample,
-    festival_id: Festival.all.first.id
-  )
-  point.save!
-end
-
+puts "creating chatroom"
 Chatroom.create!(
   name: "General",
   festival_id: Festival.all.first.id
