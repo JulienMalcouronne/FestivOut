@@ -25,7 +25,6 @@
                   <strong><h6><%= artist.start_time.strftime("at %I:%M%p") %></h6></strong>
                   <%= link_to "Add a reminder", festival_day_artist_reminders_path(end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: @day), method: :post %>
                 </div>
-
               </div>
             </div>
           </li>
