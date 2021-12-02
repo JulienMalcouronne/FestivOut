@@ -36,7 +36,7 @@ class PagesController < ApplicationController
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
         image_url: helpers.asset_url("music-note.png")
       }
-          elsif point_of_interest.name == "toilette"
+          elsif point_of_interest.name == "Toilette"
           {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("toilets.png")
         }
 
-          elsif point_of_interest.name == "exit"
+          elsif point_of_interest.name == "Exit"
            {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("star.png")
         }
 
-          elsif point_of_interest.name == "entry"
+          elsif point_of_interest.name == "Entry"
         {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
