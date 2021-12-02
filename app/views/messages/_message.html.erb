@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div class="chatcontent">
-    <div class="ownname"><strong><%= message.user.username %></strong> - <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></div>
-    <p style="margin-bottom: 0px; " ><%= message.content %></p>
+    <div class="ownname" ><strong><%= message.user.username %></strong> - <i style="opacity:0.6"><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></div>
+    <p style="margin-top: 2px;margin-bottom: 0px; " ><%= message.content %></p>
   </div>
 </div>
