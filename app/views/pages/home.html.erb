@@ -29,8 +29,7 @@
 </div>
 
 <div class="content-wrapper">
-
-
+  
   <div class="container-fluid">
     <div class="planning-home d-flex justify-content-between">
       <h5>Planning & reminder</h5>
@@ -73,7 +72,16 @@
   <div class="container-fluid">
     <div class="planning-home d-flex justify-content-between">
       <% if current_user %>
-        <h5>My friends (<%= @user_friends.length %>)</h5>
+      <% friend_notif = 0 %>
+      <% if current_user && current_user.friend_requests.any? %>
+        <% current_user.friend_requests.each do |request| %>
+          <% if request.status == "pending" %>
+          <% friend_notif += 1 %>
+          <% end %>
+          <% end %>
+        <% end %>
+        <h5>My friends (<%= @user_friends.length %>)</h5> <p style="color: red"><%= friend_notif if friend_notif > 0 %></p>
+
         <a href="/friends"><p>See all <i class="fas fa-chevron-right"></i></p></a>
       <% end %>
     </div>

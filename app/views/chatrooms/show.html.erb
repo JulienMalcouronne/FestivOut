@@ -1,5 +1,5 @@
   <div class="chatroom container-fluid pt-3 ">
-    <h1 class="text-center" style="background-color:#8661C1;padding:10px;border-radius:12px;"><%= @chatroom.name.capitalize %> chatroom</h1>
+    <h1 class="text-center" style="background-color:#8661C1;padding:10px;border-radius:12px;">#<%= @chatroom.name.capitalize %></h1>
     <div class="messages chat" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-currentUser="<%= @user.id%>" >
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>

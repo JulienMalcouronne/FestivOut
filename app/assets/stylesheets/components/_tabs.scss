@@ -11,8 +11,10 @@
       color: #EEEEEE;
       border-radius: 5px;
       background-color: #8661c1;
-      .nav-link.active{
+      .nav-link-active{
         color:#8661c1 ;
+        background-color: #8661c1;
+        opacity: 1;
       }
     }
 }

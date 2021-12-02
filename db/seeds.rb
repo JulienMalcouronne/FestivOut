@@ -27,7 +27,7 @@ price = rand(5...20)
 artistName = ["Arno Cost", "Guillaume Cabaret", "Daft Punk", "Parcels", "Fatima Yamaha", "Mac Demarco", "The Strokes", "Bicep", "Sébastien Tellier", "Air"]
 itemName = ["fries", "shoes", "goodies", "burger", "t-shirt", "bag", "shots", "red wine", "white wine", "beer", "souvenir", "hot dog", "sausage"]
 desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because a description would not describe it"]
-pointName = ["toilette 1", "toilette 2", "scene 1", "scene 2", "ATM", "exit", "entry", "camping 1", "exit 2", "camping 2"]
+pointName = ["toilette", "Le Perchoir", "Gaudelet", "La Rotonde", "exit", "entry"]
 pointDesc = ["Main", "Second"]
 pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Paris", "1 Vla Gaudelet, 75011 Paris", "7 Vla Gaudelet, 75011 Paris", "115 Rue Oberkampf, 75011 Paris","120 Rue Oberkampf, 75011 Paris", "15 Av. Jean Aicard, 75011 Paris", "19 Av. Jean Aicard, 75011 Paris", "71 Rue Servan, 75011 Paris", "69 Rue Servan, 75011 Paris", "3 Rue Saint-Hubert, 75011 Paris", "9 Rue Saint-Hubert, 75011 Paris", "78 Rue Saint-Maur, 75011 Paris", "96 Rue Saint-Maur, 75011 Paris", "68 Av. de la République, 75011 Paris", "78 Av. de la République, 75011 Paris", "53 Av. de la République, 75011 Paris", "58 Av. de la République, 75011 Paris"]
 picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg", "souvenir.jpeg"]
@@ -148,7 +148,7 @@ nameday.each do |name|
         start_time: start,
         finish_time: start + (1/24.0),
         day_id: day.id,
-        point_of_interest_id: PointOfInterest.where("name = ? OR name = ?", "scene 1", "scene 2").sample.id
+        point_of_interest_id: PointOfInterest.where("name = ? OR name = ? OR name = ?", "Le Perchoir", "Gaudelet", "La Rotonde" ).sample.id
       )
         artist.image.attach(io: File.open("app/assets/images/#{picForArtists[index]}"), filename: "#{picForArtists[index]}")
         day.save!
