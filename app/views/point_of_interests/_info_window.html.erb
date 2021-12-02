@@ -6,7 +6,7 @@
   <%= artist.name %>
   <%= artist.start_time.strftime("at %I:%M%p") %>
   </p>
-  <%= link_to "Add a reminder", festival_day_artist_reminders_path(festival_id: artist.day.festival.id, end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: artist.day.id), method: :post, class: "btn btn-primary", style: "color: white; background-color: #8661C1 " %>
+  <%= link_to "Add a reminder", festival_day_artist_reminders_path(festival_id: artist.day.festival.id, end_time: artist.start_time.strftime("at %I:%M%p"), artist_id: artist, day_id: artist.day.id), method: :post, class: "btn btn-primary", style: "color: white;border:1px solid #8661C1!important; outline: none; background-color: #8661C1; box-shadow: none" %>
   <br>
   <br>
   <% end %>

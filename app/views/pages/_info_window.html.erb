@@ -1,10 +1,10 @@
 <div class="popup">
   <h4 class="p-2 mb-0" style="color: #8661C1"><%= user.username.capitalize %></h4>
       <% if user.avatar.attached? %>
-      <div style="margin-right: 5px;">
+      <div style="margin-right: 5px;box-shadow: none">
       </div>
     <% else %>
-      <div style="margin-right: 5px;">
+      <div style="margin-right: 5px;box-shadow: none">
         <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
       </div>
     <% end %>
