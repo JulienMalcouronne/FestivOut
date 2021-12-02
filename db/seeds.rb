@@ -37,8 +37,8 @@ picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg",
 
 shops = [
   {
-    name: "FastFood",
-    photo: "truck.jpeg",
+    name: "The FoodTruck",
+    photo: "burger.jpg",
     address: "16, Villa Gaudelet, 75011 Paris",
     items: [
       {
@@ -70,7 +70,7 @@ shops = [
   },
   {
     name: "Drinks",
-    photo: "truck1.jpeg",
+    photo: "cocktail.jpg",
     address: "rue Saint-Maur, 75011 Paris",
     items: [
       {
