@@ -24,7 +24,7 @@ class PagesController < ApplicationController
       lat: shop.latitude,
       lng: shop.longitude,
       info_window: render_to_string(partial: "shops/info_window", locals: { shop: shop }),
-      image_url: helpers.asset_url("dinner.png")
+      image_url: helpers.asset_url("burgerz.png")
     }
     end
       @point_of_interests = policy_scope(PointOfInterest)
@@ -34,14 +34,14 @@ class PagesController < ApplicationController
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        image_url: helpers.asset_url("star.png")
+        image_url: helpers.asset_url("music-note.png")
       }
           elsif point_of_interest.name == "toilette"
           {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        image_url: helpers.asset_url("toilette.png")
+        image_url: helpers.asset_url("toilets.png")
         }
 
           elsif point_of_interest.name == "exit"
