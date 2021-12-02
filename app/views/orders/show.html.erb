@@ -5,15 +5,17 @@
     <%# testttt %>
     </div>
     <div class="col" style="margin-top:40%;background-color:#181F37;padding:20px;margin-left:15px;margin-right:15px;border-radius:8px;display:flex;flex-direction: column;
-    align-content: flex-start;">
+      align-content: flex-start;">
       <h1><span style="color:#8661C1;">Order #<%= @order.id %> <small><span class="badge badge-primary">Accepted</span></small></h1>
       <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>ITEM</strong> <%= @order.item.name %> </li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
+        <div class="items"style="display:flex;flex-direction: column;">
+          <div class="test" style="display:flex;justify-content: space-between;"><div><li><span style="color:#8661C1;">ISSUED ON</span></div><div> <%= @order.created_at.to_date %></li></div></div>
+          <div class="test" style="display:flex;justify-content: space-between;"><div><li><span style="color:#8661C1;">ITEM</span></div> <div><%= @order.item.name %> </li></div></div>
+          <div class="test" style="display:flex;justify-content: space-between;"><div><li><span style="color:#8661C1;">TOTAL</span></div> <div><%= humanized_money_with_symbol @order.amount %></li></div></div>
+          </li>
+        </div>
       </ul>
-      <p>Please meet us at the take away with the ticket in <strong>15 minutes</strong></p>
+      <p>Please meet us at the take away with the ticket in <span style="color:#8661C1;">15 minutes</span></p>
     </div>
   </div>
 </div>
