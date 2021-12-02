@@ -24,10 +24,11 @@
 body{
   background-image: linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)), url(https://i.pinimg.com/564x/fe/17/de/fe17de19c2e7f27ecbecdcac0c61835e.jpg);
   color: #EEEEEE;
+  padding-bottom: 200px;
 }
 
 .content-wrapper {
-  height: calc(100vh - 140px - 70px);
+  height: calc(100vh - 90px - 70px);
 }
 
 a{
