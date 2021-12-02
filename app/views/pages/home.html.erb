@@ -1,33 +1,35 @@
-<div class="content-wrapper">
-  <div class="navbar">
-    <div class="container">
-      <h4>Welcome to Batch Party</h4>
-      <div class= "d-flex align-items-center">
-        <div class="notif text-center d-flex align-content-center justify-content-center flex-wrap">
-         <a href="/notification"><i class="far fa-bell "></i></a>
-        </div>
-        <div>
-          <% if user_signed_in? %>
-            <% if current_user.avatar.attached? %>
-            <div style="margin-left: 15px;">
-              <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
-              </div>
+<div class="navbar">
+  <div class="container">
+    <h4>Welcome to Batch Party</h4>
+    <div class= "d-flex align-items-center">
+      <div class="notif text-center d-flex align-content-center justify-content-center flex-wrap">
+        <a href="/notification"><i class="far fa-bell "></i></a>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <% if current_user.avatar.attached? %>
+          <div style="margin-left: 15px;">
+            <img src="<%= cl_image_path current_user.avatar.key , height: 10 %>" class="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
             </div>
-            <% else %>
-            <div style="margin-left: 15px;">
-              <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
-              </div>
+          </div>
+          <% else %>
+          <div style="margin-left: 15px;">
+            <img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></div>
             </div>
-            <% end %>
+          </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
+
+<div class="content-wrapper">
+  
   <div class="container-fluid">
     <div class="planning-home d-flex justify-content-between">
       <h5>Planning & reminder</h5>
@@ -68,7 +70,7 @@
   </div>
 
   <div class="container-fluid">
-    <div class="planning-home d-flex justify-content-between mt-5">
+    <div class="planning-home d-flex justify-content-between">
       <% if current_user %>
       <% friend_notif = 0 %>
       <% if current_user && current_user.friend_requests.any? %>
@@ -85,18 +87,33 @@
     </div>
   </div>
 
-  <ul class="container-fluid friend-list">
-    <% if current_user && @user_friends.any? %>
-        <% @user_friends.each do |friend2| %>
-        <% if friend2.user.avatar.attached? %>
-            <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
-        <% else %>
-          <div style="margin-right: 5px;">
-            <li><img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false></li>
-          </div>
+    <ul class="container-fluid friend-list">
+      <% if current_user && @user_friends.any? %>
+          <% @user_friends.first(5).each do |friend2| %>
+          <% if friend2.user.avatar.attached? %>
+              <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
+          <% else %>
+            <div style="margin-right: 5px;">
+              <li><img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false></li>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+
+    <div class="container-fluid home-preorder">
+      <% if current_user && current_user.orders.any? %>
+        <div class="planning-home d-flex justify-content-between">
+          <h5>My orders</h5>
+        </div>
+        <div class="home-pre-order-card d-flex align-items-center">
+          <% current_user.orders.last(1).each do |order| %>
+            <img src="<%= cl_image_path order.item.image.key , height: 10 %>">
+            <p>Your <strong><%= "#{order.item.name}" %></strong> will be ready in 10 min. Please go to <strong><%= "#{order.item.shop.name}" %></strong> to pick it.</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
 
 </div>
