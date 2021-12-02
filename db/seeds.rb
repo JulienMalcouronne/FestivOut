@@ -27,7 +27,7 @@ price = rand(5...20)
 artistName = ["Arno Cost", "Guillaume Cabaret", "Daft Punk", "Parcels", "Fatima Yamaha", "Mac Demarco", "The Strokes", "Bicep", "Sébastien Tellier", "Air"]
 itemName = ["fries", "shoes", "goodies", "burger", "t-shirt", "bag", "shots", "red wine", "white wine", "beer", "souvenir", "hot dog", "sausage"]
 desc = ["best ever", "good looking", "tasty", "get drunk fast", "try it because a description would not describe it"]
-pointName = ["toilette", "Le Perchoir", "Gaudelet", "La Rotonde", "exit", "entry"]
+pointName = ["Toilette", "Le Perchoir", "Gaudelet", "La Rotonde", "Exit", "Entry"]
 pointDesc = ["Main", "Second"]
 pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Paris", "1 Vla Gaudelet, 75011 Paris", "7 Vla Gaudelet, 75011 Paris", "115 Rue Oberkampf, 75011 Paris","120 Rue Oberkampf, 75011 Paris", "15 Av. Jean Aicard, 75011 Paris", "19 Av. Jean Aicard, 75011 Paris", "71 Rue Servan, 75011 Paris", "69 Rue Servan, 75011 Paris", "3 Rue Saint-Hubert, 75011 Paris", "9 Rue Saint-Hubert, 75011 Paris", "78 Rue Saint-Maur, 75011 Paris", "96 Rue Saint-Maur, 75011 Paris", "68 Av. de la République, 75011 Paris", "78 Av. de la République, 75011 Paris", "53 Av. de la République, 75011 Paris", "58 Av. de la République, 75011 Paris"]
 picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg", "souvenir.jpeg"]
@@ -37,7 +37,7 @@ picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg",
 
 shops = [
   {
-    name: "FastFood",
+    name: "Fast Food",
     photo: "truck.jpeg",
     address: "16, Villa Gaudelet, 75011 Paris",
     items: [
@@ -69,7 +69,7 @@ shops = [
     ]
   },
   {
-    name: "Drinks",
+    name: "Bar",
     photo: "truck1.jpeg",
     address: "rue Saint-Maur, 75011 Paris",
     items: [

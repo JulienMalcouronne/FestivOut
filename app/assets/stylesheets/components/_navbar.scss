@@ -33,3 +33,17 @@ i.far.fa-bell::before {
   height: 0px;
   margin-bottom: 15px;
 }
+
+.dropdown-menu[data-bs-popper] {
+  top: 75%;
+  left: 50%;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+  padding: 0px;
+  margin: 0px;
+}
+
+.dropdown-item {
+  padding: 0px;
+}

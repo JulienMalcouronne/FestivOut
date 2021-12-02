@@ -42,8 +42,7 @@ class RemindersController < ApplicationController
     # authorize @day
     # authorize @festival
     if @reminder.save
-      redirect_to "/"
-      flash[:alert] = 'reminder successfully added'
+      redirect_to festival_days_path, notice: "Your reminder is successfully set!"
     else
       render :home
     end
