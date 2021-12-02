@@ -1,78 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .full-screen {
-  background-color: rgb(51, 51, 51);
-  width: 100vw;
-  height: 100vh;
-  color: white;
-  font-family: 'Arial Black';
-  text-align: center;
+    @import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+$color1: white;
+$color2: #342643;
+$color3: #1FA9D6;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    background: url(https://i.imgur.com/CZdBKjO.gif) no-repeat center center fixed; 
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    background-color: $color2; 
+    height: 100%;
 }
 
-.container {
-  padding-top: 4em;
-  width: 50%;
-  display: block;
-  margin: 0 auto;
+.text-wrapper {
+    height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
-.error-num {
-  font-size: 8em;
+.title {
+    font-size: 9em;
+    font-weight: 700;
+    color: $color1;
+    position:relative;
 }
 
-.eye {
-  background: #fff;
-  border-radius: 50%;
-  display: inline-block;
-  height: 100px;
-  position: relative;
-  width: 100px;
-  &::after {
-    background: #000;
-    border-radius: 50%;
-    bottom: 56.1px;
-    content: ' ';
-    height: 33px;
-    position: absolute;
-    right: 33px;
-    width: 33px;
+.subtitle {
+    font-size: 40px;
+    font-weight: 700;
+    color: $color1;
+    position:relative;
+}
+
+.buttons {
+    margin: 30px;
+    
+    a.button {
+        background-color: $color2;
+        font-weight: 700;
+        border: 2px solid $color1;
+        text-decoration: none;
+        padding: 15px;
+        text-transform: uppercase;
+        color: $color1;
+        border-radius: 26px;
+        transition: all 0.2s ease-in-out;
+        
+        &:hover {
+            background-color: lighten($color2, 10%);
+            color: white;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    
+}
+
+
+// Glitch animation from https://codepen.io/lbebber/pen/ypgql
+@keyframes noise-anim{
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(200)+px,9999px,random(200)+px,0);
+    }
   }
 }
-
-.italic {
-  font-style: italic;
+.subtitle:after, .title:after{
+  content:attr(data-content);
+  position:absolute;
+  left:2px;
+  text-shadow:-1px 0 red;
+  top:0;
+  color:$color1;
+  overflow:hidden;
+  clip:rect(0,900px,0,0); 
+  animation:noise-anim 2s infinite linear alternate-reverse;
 }
 
-p {
-  margin-bottom: 4em;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  &:hover {
-    color: lightgray;
+@keyframes noise-anim-2{
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(200)+px,9999px,random(200)+px,0);
+    }
   }
+}
+.subtitle:before, .title:before{
+  content:attr(data-content);
+  position:absolute;
+  left:-2px;
+  text-shadow:1px 0 blue; 
+  top:0;
+  color:$color1;
+  overflow:hidden;
+  clip:rect(0,900px,0,0); 
+  animation:noise-anim-2 3s infinite linear alternate-reverse;
 }
   </style>
 </head>
 
 <body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="full-screen">
-    <div class='container'>
-      <span class="error-num">5</span>
-      <div class='eye'></div>
-      <div class='eye'></div>
-
-      <p class="sub-text">Oh eyeballs! Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
-      <a href="http://www.festivout.com">Go back</a>
+  <!-- This file lives in public/404.html -->
+  <div class="text-wrapper">
+    <div class="title" data-content="404">
+        404
     </div>
-  </div>
+
+    <div class="subtitle" data-content="Oops, the page you're looking for doesn't exist">
+        Oops, the page you're looking for doesn't exist.
+    </div>
+
+    <div class="buttons">
+        <a class="button" href="http://www.festivout.com">Go to homepage</a>
+    </div>
+</div>
 </body>
 </html>
