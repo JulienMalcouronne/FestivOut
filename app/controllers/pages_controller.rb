@@ -29,14 +29,14 @@ class PagesController < ApplicationController
     end
       @point_of_interests = policy_scope(PointOfInterest)
         @interests = @point_of_interests.geocoded.map do |point_of_interest|
-          if point_of_interest.name == "scene 1" || point_of_interest.name == "scene 2"
+          if point_of_interest.name == "Gaudelet" || point_of_interest.name == "Le Perchoir" || point_of_interest.name == "La Rotonde"
       {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
         image_url: helpers.asset_url("star.png")
       }
-          elsif point_of_interest.name == "toilette 1" || point_of_interest.name == "toilette 2"
+          elsif point_of_interest.name == "toilette"
           {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
@@ -44,27 +44,14 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("toilette.png")
         }
 
-          elsif point_of_interest.name == "exit" || point_of_interest.name == "exit 2"
+          elsif point_of_interest.name == "exit"
            {
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
         info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
         image_url: helpers.asset_url("star.png")
         }
-          elsif point_of_interest.name == "camping 1" || point_of_interest.name == "camping 2"
-          {
-        lat: point_of_interest.latitude,
-        lng: point_of_interest.longitude,
-        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        image_url: helpers.asset_url("star.png")
-        }
-          elsif point_of_interest.name == "ATM"
-          {
-        lat: point_of_interest.latitude,
-        lng: point_of_interest.longitude,
-        info_window: render_to_string(partial: "point_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
-        image_url: helpers.asset_url("star.png")
-        }
+
           elsif point_of_interest.name == "entry"
         {
         lat: point_of_interest.latitude,
