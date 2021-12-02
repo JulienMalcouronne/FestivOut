@@ -137,3 +137,25 @@ a{
     margin-right: 10px;
   }
 }
+
+ul.container-fluid.friend-list {
+  margin-bottom: 10px;
+}
+
+.home-pre-order-card {
+  background-color: #181F37;
+  border-radius: 10px;
+  p {
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding: 10px;
+  }
+
+
+}
+
+.home-pre-order-card img {
+  width: 100px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
