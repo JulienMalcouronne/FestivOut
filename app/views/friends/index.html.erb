@@ -69,7 +69,7 @@
           <% if friend.status == "accepted" %>
             <li style="list-style-type:none;">
               <div class="friends-list">
-                  <img class="avatar-large" src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png', height: 10 %>" alt=""> <%= friend.friend["username"] %>
+                  <img class="avatar-large" src="<%= cl_image_path friend.user.avatar.attached? ? friend.user.avatar.key : 'https://pic.onlinewebfonts.com/svg/img_258083.png', height: 10 %>" alt=""> <%= friend.user["username"] %>
                 <div>
                   <a href="/map"> <i class="fas fa-location-arrow"></i></a>
                 </div>
