@@ -81,7 +81,9 @@
         <% if current_user && current_user.friend_requests.any? %>
           <% current_user.friend_requests.each do |request| %>
             <% if request.status == "pending" %>
-              <% friend_notif += 1 %>
+              <% if request.user != current_user %>
+                <% friend_notif += 1 %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
