@@ -102,6 +102,8 @@
           <% if friend2.user.avatar.attached? %>
               <% if friend2.user.username != current_user.username %>
               <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
+              <% else %>
+              <li><img class="avatar-large" src="<%= cl_image_path friend2.friend.avatar.key, height: 10 %>" alt=""></li>
               <% end %>
           <% else %>
             <div style="margin-right: 5px;">
