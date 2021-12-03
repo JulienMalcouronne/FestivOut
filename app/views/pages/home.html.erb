@@ -98,7 +98,9 @@
       <% if current_user && @user_friends.any? %>
           <% @user_friends.first(5).each do |friend2| %>
           <% if friend2.user.avatar.attached? %>
+              <% if friend2.user.username != current_user.username %>
               <li><img class="avatar-large" src="<%= cl_image_path friend2.user.avatar.key, height: 10 %>" alt=""></li>
+              <% end %>
           <% else %>
             <div style="margin-right: 5px;">
               <li><img src='https://pic.onlinewebfonts.com/svg/img_258083.png' alt=""class ="avatar avatar-bordered dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup=true aria-expanded=false></li>
