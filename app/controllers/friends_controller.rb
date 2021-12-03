@@ -32,7 +32,8 @@ class FriendsController < ApplicationController
 
   def confirm
     @friend.update(status: "accepted")
-    redirect_to "/friends"
+    # redirect_to "/friends?tab=pending"
+    redirect_to friends_path(tab: 'pending')
   end
 
   def refuse
