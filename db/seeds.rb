@@ -81,27 +81,27 @@ shops = [
       {
         photo: "beer.jpeg",
         name: "beer",
-        price: rand(5..20),
+        price: rand(5..10),
       },
       {
         photo: "beer2.jpeg",
         name: "beer",
-        price: rand(5..20),
+        price: rand(5..10),
       },
       {
         photo: "white_wine.jpeg",
         name: "white wine",
-        price: rand(5..20),
+        price: rand(5..10),
       },
       {
         photo: "red_wine.jpeg",
         name: "red wine",
-        price: rand(5..20),
+        price: rand(5..10),
       },
       {
         photo: "water.jpeg",
         name: "water",
-        price: rand(5..20),
+        price: rand(5..10),
       },
     ]
   }
