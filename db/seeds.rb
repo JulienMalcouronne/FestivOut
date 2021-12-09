@@ -32,7 +32,7 @@ pointDesc = ["Main", "Second"]
 pointAddress = ["26 Av. Jean Aicard, 75011 Paris", "30 Av. Jean Aicard, 75011 Paris", "1 Vla Gaudelet, 75011 Paris", "7 Vla Gaudelet, 75011 Paris", "115 Rue Oberkampf, 75011 Paris","120 Rue Oberkampf, 75011 Paris", "15 Av. Jean Aicard, 75011 Paris", "19 Av. Jean Aicard, 75011 Paris", "71 Rue Servan, 75011 Paris", "69 Rue Servan, 75011 Paris", "3 Rue Saint-Hubert, 75011 Paris", "9 Rue Saint-Hubert, 75011 Paris", "78 Rue Saint-Maur, 75011 Paris", "96 Rue Saint-Maur, 75011 Paris", "68 Av. de la République, 75011 Paris", "78 Av. de la République, 75011 Paris", "53 Av. de la République, 75011 Paris", "58 Av. de la République, 75011 Paris"]
 picForRestaurant = ["truck.jpeg", "truck1.jpeg", "truck3.jpeg", "restaurant.jpeg", "souvenir.jpeg"]
 picForFoodsAndDrinks = ["fries1.jpeg", "fries2.jpeg", "pizza1.jpeg", "pizza2.jpeg", "pizza3.jpeg", "burger1.jpeg", "burger2.jpeg", "burger3.jpeg", "beer.jpeg", "beer2.jpeg", "water.jpeg", "white_wine.jpeg", "red_wine.jpeg", "coca.jpeg"]
-picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg", "artist5.jpeg","artist6.jpeg","artist7.jpeg","artist8.jpeg","artist9.jpeg","artist10.jpeg","artist11.jpeg","artist12.jpeg","artist13.jpeg","artist14.jpeg","artist15.jpeg"]
+picForArtists = ["artist1.jpeg", "artist2.jpeg", "artist3.jpeg", "artist4.jpeg", "artist5.jpeg"]
 
 
 shops = [
@@ -146,7 +146,7 @@ nameday.each do |name|
   days << day
   days.each do |day|
 
-    15.times do |index|
+    5.times do |index|
       start = DateTime.parse(time[index])
       artist = Artist.create!(
         name: artistName.sample,
