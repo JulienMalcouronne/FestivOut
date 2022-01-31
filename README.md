@@ -23,8 +23,8 @@ Cette application a été designé pour un usage PWA elle ne sera donc pas respo
 
 // Technologies utilisées // 
 
-Ruby / Ruby on Rails 
-MAPBOX GL 
-Stimulus JS
-HTML / ERB 
+Ruby / Ruby on Rails /
+MAPBOX GL /
+Stimulus JS /
+HTML / ERB /
 CSS / Bootstrap
